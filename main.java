@@ -28,6 +28,8 @@ public class PongGame extends JPanel implements KeyListener {
         "You mean to say that you were all, alone?",
         "Interesting, if true.",
         "What the heck is that, what the heck is that?",
+
+        "They just keep driving, driving, driving!"
         
         "You're kidding!",
         "Chocolate chip pancakes with chokecherry syrup?",
