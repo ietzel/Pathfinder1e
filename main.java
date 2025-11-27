@@ -77,7 +77,7 @@ public class PongGame extends JPanel implements KeyListener {
     }
 
     private String[] skills = {
-    "Craft (Int), Handle Animal (Cha), Heal (Wis), Knowledge (all skills taken individually) (Int), Profession (Wis), Spellcraft (Int), and Survival (Wis)."
+    "Craft, Handle Animal, Heal, Knowledge (all skills taken individually), Profession, Spellcraft, and Survival."
     }
 
     private String[] feats = {
