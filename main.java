@@ -75,6 +75,10 @@ public class PongGame extends JPanel implements KeyListener {
     "4th Level: cure critical wounds, minor creation, polymorph, restoration, stoneskin, wall of fire.",
     "5th Level: baleful polymorph, break enchantment, commune, heal, major creation, raise dead, true seeing, wall of stone."
     }
+
+    private String[] skills = {
+    "Craft (Int), Handle Animal (Cha), Heal (Wis), Knowledge (all skills taken individually) (Int), Profession (Wis), Spellcraft (Int), and Survival (Wis)."
+    }
     
     public PongGame() {
     JFrame frame = new JFrame("Pong Game");
