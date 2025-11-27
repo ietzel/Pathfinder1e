@@ -20,6 +20,18 @@ public class PongGame extends JPanel implements KeyListener {
     private boolean upPressed2 = false;
     private boolean downPressed2 = false;
 
+    private String[] quotes = {
+        
+        "The tower of power!",
+        "Well, I, uh.",
+        "You get the house, the boat, the car, the plane!",
+        "You mean to say that you were all, alone?",
+        "Interesting, if true.",
+        "What the heck is that, what the heck is that?",
+        
+        ""
+    }
+    
     public PongGame() {
     JFrame frame = new JFrame("Pong Game");
     frame.setSize(500, 500);
