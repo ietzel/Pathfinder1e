@@ -29,7 +29,7 @@ public class PongGame extends JPanel implements KeyListener {
         "Interesting, if true.",
         "What the heck is that, what the heck is that?",
 
-        "They just keep driving, driving, driving!"
+        "They just keep driving, driving, driving!",
         
         "You're kidding!",
         "Chocolate chip pancakes with chokecherry syrup?",
@@ -37,10 +37,14 @@ public class PongGame extends JPanel implements KeyListener {
 
         "Holy mackerel!",
 
+        "Oh puddin'!",
+
+        "Lasagna with six cheeses!",
+        
         "A little bit of poison never hurt anybody.",
 
         "Here we go loopy loo, here we go loopy liy, here we go loop'dedoo, all on a saturday night!",
-        "Hey'a'oh, you'a'oh, does your momma know, you're going down the road, to see your little girlie'o!"
+        "Hey'a'oh, you'a'oh, does your momma know, you're going down the road, to see your little girlie'o!",
 
         "Hey flowrizzle, the super from across the street!",
         "Rock and roll, coochie-coo!"
@@ -49,9 +53,9 @@ public class PongGame extends JPanel implements KeyListener {
 
         "Wogod!",
 
-        "Look how big it is, look how big it is!"
+        "Look how big it is, look how big it is!",
 
-        "Anything goes!"
+        "Anything goes!",
 
         "Where, is the scroll?",
 
