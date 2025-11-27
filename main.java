@@ -76,7 +76,12 @@ public class PongGame extends JPanel implements KeyListener {
     "5th Level: baleful polymorph, break enchantment, commune, heal, major creation, raise dead, true seeing, wall of stone."
     }
 
-    private String[] skills = {
+    private String[] classskills = {
+    "Acrobatics | Appraise | Bluff | Climb | Craft | Diplomacy | Disable Device | Disguise | Escape Artist | Fly | Handle Animal | Heal | Intimidate | Knowledge | Linguistics | Perception | Perform | Profession | Ride | Sense Motive | Sleight of Hand | Spellcraft | Stealth | Survival | Swim | Use Magic Device"
+    }
+
+
+    private String[] classskills = {
     "Craft, Handle Animal, Heal, Knowledge (all skills taken individually), Profession, Spellcraft, and Survival."
     }
 
