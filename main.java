@@ -66,6 +66,15 @@ public class PongGame extends JPanel implements KeyListener {
         "That's what we can say about it then!",
         
     }
+
+    private String[] spells = {
+    "0 Level: create water, detect magic, ghost sound, guidance, light, mending, purify food and drink, read magic, stabilize, touch of fatigue.",
+    "1st Level: bless, burning hands, cause fear, command, comprehend languages, cure light wounds, detect chaos, detect evil, detect good, detect law, endure elements, obscuring mist, protection from chaos, protection from evil, protection from good, protection from law, sleep.",
+    "2nd Level: aid, animal trance, bear's endurance, bull's strength, cat's grace, cure moderate wounds, darkness, delay poison, invisibility, mirror image, resist energy, scorching ray, see invisibility, web.",
+    "3rd Level: animate dead, bestow curse, contagion, continual flame, cure serious wounds, daylight, deeper darkness, lightning bolt, neutralize poison, remove curse, remove disease, tongues.",
+    "4th Level: cure critical wounds, minor creation, polymorph, restoration, stoneskin, wall of fire.",
+    "5th Level: baleful polymorph, break enchantment, commune, heal, major creation, raise dead, true seeing, wall of stone."
+    }
     
     public PongGame() {
     JFrame frame = new JFrame("Pong Game");
