@@ -79,6 +79,20 @@ public class PongGame extends JPanel implements KeyListener {
     private String[] skills = {
     "Craft (Int), Handle Animal (Cha), Heal (Wis), Knowledge (all skills taken individually) (Int), Profession (Wis), Spellcraft (Int), and Survival (Wis)."
     }
+
+    private String[] feats = {
+    "Arcane Caster: Arcane Strike, Combat Casting, Eschew Materials, Greater Spell Focus, Greater Spell Penetration, Improved Initiative, Iron Will, item creation feats (all), Lightning Reflexes, metamagic feats (all), Spell Focus, Spell Mastery, Spell Penetration, and Toughness.",
+    "Divine Caster (With Channeling): Alignment Channel, Channel Smite, Combat Casting, Command Undead, Elemental Channel, Extra Channel, Improved Initiative, Improved Channel, Iron Will, item creation feats (all), metamagic feats (all), Power Attack, Selective Channeling, Spell Focus, Spell Penetration, Toughness, and Turn Undead.",
+    "Divine Caster (Without Channeling): Cleave, Combat Casting, Eschew Materials, Improved Initiative, Iron Will, item creation feats (all), Lightning Reflexes, metamagic feats (all), Natural Spell, Power Attack, Spell Focus, Spell Penetration, Toughness, and Weapon Focus.",
+    "Melee (Finesse Fighter): Combat Expertise, Combat Reflexes, Dazzling Display, Deadly Stroke, Dodge, Greater Vital Strike, Improved Disarm, Improved Feint, Improved Trip, Improved Vital Strike, Mobility, Spring Attack, Shatter Defenses, Vital Strike, Weapon Finesse, and Whirlwind Attack.",
+    "Melee (Unarmed Fighter): Combat Reflexes, Deflect Arrows, Dodge, Gorgon’s Fist, Improved Grapple, Improved Initiative, Improved Unarmed Strike, Medusa’s Wrath, Mobility, Scorpion Style, Snatch Arrows, Spring Attack, Stunning Fist, and Weapon Focus.",
+    "Melee (Mounted): Improved Critical, Improved Initiative, Mounted Combat, Power Attack, Ride-By Attack, Skill Focus (Ride), Spirited Charge, Toughness, Trample, and Weapon Focus.",
+    "Melee (Sword and Shield Fighter): Cleave, Great Cleave, Great Fortitude, Greater Vital Strike, Improved Bull Rush, Improved Critical, Improved Initiative, Improved Vital Strike, Power Attack, Shield Focus, Shield Master, Shield Slam, Two-Weapon Fighting, Vital Strike, and Weapon Focus.",
+    "Melee (Two-Handed Fighter): Cleave, Great Cleave, Great Fortitude, Greater Vital Strike, Improved Bull Rush, Improved Critical, Improved Initiative, Improved Sunder, Improved Vital Strike, Power Attack, Vital Strike, and Weapon Focus.",
+    "Melee (Two-Weapon Fighter): Combat Reflexes, Dodge, Double Slice, Greater Two-Weapon Fighting, Greater Vital Strike, Improved Critical, Improved Initiative, Improved Two-Weapon Fighting, Improved Vital Strike, Two-Weapon Defense, M, Two-Weapon Rend, Vital Strike, and Weapon Focus.",
+    "Ranged: Deadly Aim, Far Shot, Greater Vital Strike, Improved Initiative, Improved Vital Strike, Manyshot, Pinpoint Targeting, Point-Blank Shot, Precise Shot, Rapid Reload, Rapid Shot, Shot on the Run, Vital Strike, and Weapon Focus.",
+    "Skill (most NPC classes): Armor Proficiency (all), Great Fortitude, Improved Initiative, Iron Will, Lightning Reflexes, Martial Weapon Proficiency, Run, Shield Proficiency, Skill Focus, and Toughness."
+    }
     
     public PongGame() {
     JFrame frame = new JFrame("Pong Game");
