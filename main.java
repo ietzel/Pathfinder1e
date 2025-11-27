@@ -77,7 +77,7 @@ public class PongGame extends JPanel implements KeyListener {
     }
 
     private String[] skills = {
-    "Acrobatics | Appraise | Bluff | Climb | Craft | Diplomacy | Disable Device | Disguise | Escape Artist | Fly | Handle Animal | Heal | Intimidate | Knowledge | Linguistics | Perception | Perform | Profession | Ride | Sense Motive | Sleight of Hand | Spellcraft | Stealth | Survival | Swim | Use Magic Device"
+    "Acrobatics, Appraise, Bluff, Climb, Craft, Diplomacy, Disable Device, Disguise, Escape Artist, Fly, Handle Animal, Heal, Intimidate, Knowledge, Linguistics, Perception, Perform, Profession, Ride, Sense Motive, Sleight of Hand, Spellcraft, Stealth, Survival, Swim, Use Magic Device"
     }
 
 
