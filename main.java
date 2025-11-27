@@ -51,6 +51,8 @@ public class PongGame extends JPanel implements KeyListener {
 
         "Anything goes!"
 
+        "Where, is the scroll?",
+
         "They can take it like champs!",
 
         "Godspeed.",
