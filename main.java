@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 public class PongGame extends JPanel implements KeyListener {
     private int ballX = 250;
     private int ballY = 250;
@@ -18,7 +19,8 @@ public class PongGame extends JPanel implements KeyListener {
     private boolean downPressed1 = false;
     private boolean upPressed2 = false;
     private boolean downPressed2 = false;
-public PongGame() {
+
+    public PongGame() {
     JFrame frame = new JFrame("Pong Game");
     frame.setSize(500, 500);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,7 +28,7 @@ public PongGame() {
     frame.setVisible(true);
     frame.addKeyListener(this);
     setFocusable(true);
-}
+    }
 
 public void paint(Graphics g) {
     super.paint(g);
