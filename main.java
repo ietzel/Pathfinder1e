@@ -67,6 +67,10 @@ public class PongGame extends JPanel implements KeyListener {
         
     }
 
+    private String[] species = {
+    "https://www.d20pfsrd.com/races/"
+    }
+    
     private String[] spells = {
     "0th: create water, detect magic, ghost sound, guidance, light, mending, purify food and drink, read magic, stabilize, touch of fatigue.",
     "1st: bless, burning hands, cause fear, command, comprehend languages, cure light wounds, detect chaos, detect evil, detect good, detect law, endure elements, obscuring mist, protection from chaos, protection from evil, protection from good, protection from law, sleep.",
