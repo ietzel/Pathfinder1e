@@ -68,7 +68,7 @@ public class PongGame extends JPanel implements KeyListener {
     }
 
     private String[] species = {
-    "https://www.d20pfsrd.com/races/"
+        "https://www.d20pfsrd.com/gamemastering/other-rules/creating-new-races/"
     }
     
     private String[] spells = {
