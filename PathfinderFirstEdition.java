@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class PongGame extends JPanel implements KeyListener {
+public class PathfinderFirstEdition extends JPanel implements KeyListener {
     private int ballX = 250;
     private int ballY = 250;
     private int ballXSpeed = 2;
@@ -210,7 +210,7 @@ public void keyTyped(KeyEvent e) {
 }
 
 public static void main(String[] args) {
-    PongGame game = new PongGame();
+    PathfinderFirstEdition game = new PathfinderFirstEdition();
     while (true) {
         game.moveBall();
         game.movePaddles();
