@@ -3,11 +3,11 @@ public class Character {
     this.name = name;
     this.species = species;
     this.alignment = alignment;
-    this.str = str;
-    this.dex = dex;
-    this.con = con;
-    this.int = int;
-    this.wis = wis;
-    this.cha = cha;
+    this.str = str + this.species.str;
+    this.dex = dex + this.species.dex;
+    this.con = con + this.species.con;
+    this.int = int + this.species.int;
+    this.wis = wis + this.species.wis;
+    this.cha = cha + this.species.cha;
   }
 }
