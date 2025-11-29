@@ -69,6 +69,7 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
 
     private String[] species = {
         "https://www.d20pfsrd.com/gamemastering/other-rules/creating-new-races/"
+        "not: Centaur, Drider, Gargoyle, Ogre"
     }
     
     private String[] spells = {
