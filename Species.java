@@ -1,5 +1,5 @@
 public class Species {
-  Species(name, str, dex, con, int, wis, cha, size, water, land, air) {
+  Species(name, str, dex, con, int, wis, cha, size, water, land, air, variation) {
     this.name = name;
     this.str = str;
     this.dex = dex;
@@ -17,5 +17,6 @@ public class Species {
     this.water = water;
     this.land = land;
     this.air = air;
+    this.variation = variation;
   }
 }
