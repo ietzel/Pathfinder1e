@@ -1,5 +1,5 @@
 public class Species {
-  Species(name, str, dex, con, int, wis, cha, size, water, land, air, variation) {
+  Species(name, str, dex, con, int, wis, cha, size, burrow, swim, land, climb, fly, variation) {
     this.name = name;
     this.str = str;
     this.dex = dex;
@@ -14,9 +14,12 @@ public class Species {
     } else if(this.size == "l" | "L") {
       this.str += 2;
       this.dex -= 2;
-    this.water = water;
+    this.burrow = burrow;
+    this.swim = swim;
     this.land = land;
     this.air = air;
+    this.climb = climb;
+    this.fly = fly;
     if(variation === undefined) {
       this.variation = false;
     } else {
