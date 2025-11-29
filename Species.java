@@ -17,6 +17,10 @@ public class Species {
     this.water = water;
     this.land = land;
     this.air = air;
-    this.variation = variation;
+    if(!variation) {
+      this.variation = false;
+    } else {
+      this.variation = variation;
+    }
   }
 }
