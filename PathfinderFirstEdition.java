@@ -20,6 +20,46 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
     private boolean upPressed2 = false;
     private boolean downPressed2 = false;
 
+    public final Species[] SPECIES = new Species[37];
+    //name, str, dex, con, int, wis, cha, size, water, land, air
+    SPECIES[0] = new Species("Dwarf", 0, 0, 2, 0, 2, -2, "M", 15, 20, 15);
+    SPECIES[1] = new Species("Elf", 0, 2, -2, 2, 0, 0, "M", 15, 30, 15);
+    SPECIES[2] = new Species("Gnome", -2, 0, 2, 0, 0, 2, "S", 15, 20, 15, 2);
+    SPECIES[3] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[4] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[5] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[6] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[7] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[8] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[9] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[10] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[11] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[12] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[13] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[14] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[15] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[16] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[17] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[18] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[19] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[20] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[21] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[22] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[23] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[24] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[25] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[26] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[27] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[28] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[29] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[30] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[31] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[32] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[33] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[34] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[35] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[36] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    
     private String[] quotes = {
         
         "The tower of power!",
