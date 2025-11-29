@@ -24,11 +24,11 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
     //name, str, dex, con, int, wis, cha, size, water, land, air
     SPECIES[0] = new Species("Dwarf", 0, 0, 2, 0, 2, -2, "M", 15, 20, 15);
     SPECIES[1] = new Species("Elf", 0, 2, -2, 2, 0, 0, "M", 15, 30, 15);
-    SPECIES[2] = new Species("Gnome", -2, 0, 2, 0, 0, 2, "S", 15, 20, 15, 2);
-    SPECIES[3] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
-    SPECIES[4] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
-    SPECIES[5] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
-    SPECIES[6] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
+    SPECIES[2] = new Species("Gnome", -2, 0, 2, 0, 0, 2, "S", 15, 20, 15);
+    SPECIES[3] = new Species("Half-Elf", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15, true);
+    SPECIES[4] = new Species("Half-Orc", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15, true);
+    SPECIES[5] = new Species("Halfling", -2, 2, 0, 0, 0, 2, "M", 15, 20, 15);
+    SPECIES[6] = new Species("Human", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15, true);
     SPECIES[7] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
     SPECIES[8] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
     SPECIES[9] = new Species("", 0, 0, 0, 0, 0, 0, "M", 15, 30, 15);
