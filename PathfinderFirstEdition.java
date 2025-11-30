@@ -7,58 +7,148 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class PathfinderFirstEdition extends JPanel implements KeyListener {
-    private int ballX = 250;
-    private int ballY = 250;
-    private int ballXSpeed = 2;
-    private int ballYSpeed = 2;
-    private int paddle1Y = 200;
-    private int paddle2Y = 200;
-    private int player1Score = 0;
-    private int player2Score = 0;
-    private boolean upPressed1 = false;
-    private boolean downPressed1 = false;
-    private boolean upPressed2 = false;
-    private boolean downPressed2 = false;
+    public int playerX3, playerY3, playerX2, playerY2, playerX1, playerY1 = 5;
+    private int playerX = 125;
+    private int playerY = 250;
+    private int playerScore = 0;
+    private boolean upPressed = false;
+    private boolean downPressed = false;
+    private boolean rightPressed = false;
+    private boolean leftPressed = false;
+    private boolean iPressed = false;
+    private boolean oPressed = false;
 
     public Species[] SPECIES = {
-    new Species("Dwarf", 0, 0, 2, 0, 2, -2, "M", 0, 15, 20, 15, 0, false),
-    new Species("Elf", 0, 2, -2, 2, 0, 0, "M", 0, 15, 30, 15, 0, false),
-    new Species("Gnome", -2, 0, 2, 0, 0, 2, "S", 0, 15, 20, 15, 0, false),
-    new Species("Half-Elf", 0, 0, 0, 0, 0, 0, "M", 0, 15, 30, 15, 0, true),
-    new Species("Half-Orc", 0, 0, 0, 0, 0, 0, "M", 0, 15, 30, 15, 0, true),
-    new Species("Halfling", -2, 2, 0, 0, 0, 2, "M", 0, 15, 20, 15, 0, false),
-    new Species("Human", 0, 0, 0, 0, 0, 0, "M", 0, 15, 30, 15, 0, true),
-    new Species("Aasimar", 0, 0, 0, 0, 2, 2, "M", 0, 15, 30, 15, 0, false),
-    new Species("Catfolk", 0, 2, 0, 0, -2, 2, "M", 0, 15, 30, 15, 0, false),
-    new Species("Dhampir", 0, 2, -2, 0, 0, 2, "M", 0, 15, 30, 15, 0, false),
-    new Species("Drow", 0, 2, -2, 0, 0, 2, "M", 0, 15, 30, 15, 0, false),
-    new Species("Drow Noble", 0, 4, -2, 2, 2, 2, "M", 0, 15, 30, 15, 0, false),
-    new Species("Duergar", 0, 0, 2, 0, 2, -4, "M", 0, 15, 20, 15, 0, false),
-    new Species("Fetchling", 0, 2, 0, 0, -2, 2, "M", 0, 15, 30, 15, 0, false),
-    new Species("Goblin", -2, 4, 0, 0, 0, 2, "S", 0, 15, 30, 15, 0, false),
+    new Species("Dwarf", 0, 0, 2, 0, 2, -2, "M", 0, 5, 20, 5, 0, false),
+    new Species("Elf", 0, 2, -2, 2, 0, 0, "M", 0, 8, 30, 8, 0, false),
+    new Species("Gnome", -2, 0, 2, 0, 0, 2, "S", 0, 5, 20, 5, 0, false),
+    new Species("Half-Elf", 0, 0, 0, 0, 0, 0, "M", 0, 8, 30, 8, 0, true),
+    new Species("Half-Orc", 0, 0, 0, 0, 0, 0, "M", 0, 8, 30, 8, 0, true),
+    new Species("Halfling", -2, 2, 0, 0, 0, 2, "M", 0, 5, 20, 5, 0, false),
+    new Species("Human", 0, 0, 0, 0, 0, 0, "M", 0, 8, 30, 8, 0, true),
+    new Species("Aasimar", 0, 0, 0, 0, 2, 2, "M", 0, 8, 30, 8, 0, false),
+    new Species("Catfolk", 0, 2, 0, 0, -2, 2, "M", 0, 8, 30, 8, 0, false),
+    new Species("Changeling", 0, 0, -2, 0, 2, 2, "M", 0, 8, 30, 8, 0, false),
+    new Species("Dhampir", 0, 2, -2, 0, 0, 2, "M", 0, 8, 30, 8, 0, false),
+    new Species("Drow", 0, 2, -2, 0, 0, 2, "M", 0, 8, 30, 8, 0, false),
+    new Species("Drow Noble", 0, 4, -2, 2, 2, 2, "M", 0, 8, 30, 8, 0, false),
+    new Species("Duergar", 0, 0, 2, 0, 2, -4, "M", 0, 5, 20, 5, 0, false),
+    new Species("Fetchling", 0, 2, 0, 0, -2, 2, "M", 0, 8, 30, 8, 0, false),
+    new Species("Goblin", -2, 4, 0, 0, 0, 2, "S", 0, 8, 30, 8, 0, false),
     new Species("Grippli", -2, 2, 0, 0, 2, 0, "S", 0, 15, 30, 20, 0, false),
-    new Species("Hobgoblin", 0, 2, 2, 0, 0, 0, "M", 0, 15, 30, 15, 0, false),
-    new Species("Ifrit", 0, 2, 0, 0, -2, 2, "M", 0, 15, 30, 15, 0, false),
-    new Species("Kobold", -4, 2, -2, 0, 0, 0, "M", 0, 15, 30, 15, 0, false),
-    new Species("Orc", 4, 0, 0, -2, -2, -2, "M", 0, 15, 30, 15, 0, false),
-    new Species("Oread", 2, 0, 0, 0, 2, -2, "M", 0, 15, 20, 15, 0, false),
-    new Species("Ratfolk", -2, 2, 0, 2, 0, 0, "S", 0, 15, 20, 15, 0, false),
-    new Species("Suli", 2, 0, 0, -2, 0, 2, "M", 0, 15, 30, 15, 0, false),
-    new Species("Svirfneblin", -2, 2, 0, 0, 2, -4, "S", 0, 15, 20, 15, 0, false),
-    new Species("Sylph", 0, 2, -2, 2, 0, 0, "M", 0, 15, 30, 15, 0, false),
-    new Species("Tengu", 0, 2, -2, 0, 2, 0, "M", 0, 15, 30, 15, 0, false),
-    new Species("Tiefling", 0, 2, 0, 2, 0, -2, "M", 0, 15, 30, 15, 0, false),
+    new Species("Hobgoblin", 0, 2, 2, 0, 0, 0, "M", 0, 8, 30, 8, 0, false),
+    new Species("Ifrit", 0, 2, 0, 0, -2, 2, "M", 0, 8, 30, 8, 0, false),
+    new Species("Kitsune", -2, 2, 0, 0, 0, 2, "M", 0, 8, 30, 8, 0, false),
+    new Species("Kobold", -4, 2, -2, 0, 0, 0, "M", 0, 8, 30, 8, 0, false),
+    new Species("Merfolk", 0, 2, 2, 0, 0, 2, "M", 0, 50, 5, 5, 0, false),
+    new Species("Orc", 4, 0, 0, -2, -2, -2, "M", 0, 8, 30, 8, 0, false),
+    new Species("Oread", 2, 0, 0, 0, 2, -2, "M", 0, 5, 20, 5, 0, false),
+    new Species("Nagaji", 2, 0, 0, -2, 0, 2, "M", 0, 5, 20, 5, 0, false),
+    new Species("Ratfolk", -2, 2, 0, 2, 0, 0, "S", 0, 5, 20, 5, 0, false),
+    new Species("Suli", 2, 0, 0, -2, 0, 2, "M", 0, 8, 30, 8, 0, false),
+    new Species("Svirfneblin", -2, 2, 0, 0, 2, -4, "S", 0, 5, 20, 5, 0, false),
+    new Species("Sylph", 0, 2, -2, 2, 0, 0, "M", 0, 8, 30, 8, 0, false),
+    new Species("Tengu", 0, 2, -2, 0, 2, 0, "M", 0, 8, 30, 8, 0, false),
+    new Species("Tiefling", 0, 2, 0, 2, 0, -2, "M", 0, 8, 30, 8, 0, false),
     new Species("Undine", -2, 2, 0, 0, 2, 0, "M", 0, 20, 30, 15, 0, false),
     new Species("Vanara", 0, 2, 0, 0, 2, -2, "M", 0, 15, 30, 20, 0, true),
-    new Species("Vishkanya", 0, 2, 0, 0, -2, 2, "M", 0, 15, 30, 15, 0, false),
-    new Species("Gathlain", 0, 2, -2, 0, 0, 2, "S", 0, 15, 30, 15, 40, false),
-    new Species("Gnoll", 2, 2, 0, 0, 0, 0, "M", 0, 15, 30, 15, 0, false),
-    new Species("Kasatha", 0, 2, 0, 0, 2, 0, "M", 0, 15, 30, 15, 0, false),
+    new Species("Vishkanya", 0, 2, 0, 0, -2, 2, "M", 0, 8, 30, 8, 0, false),
+    new Species("Wayang", 0, 2, 0, 2, -2, 0, "S", 0, 5, 20, 5, 0, false),
+    new Species("Gathlain", 0, 2, -2, 0, 0, 2, "S", 0, 8, 30, 8, 40, false),
+    new Species("Gnoll", 2, 2, 0, 0, 0, 0, "M", 0, 8, 30, 8, 0, false),
+    new Species("Kasatha", 0, 2, 0, 0, 2, 0, "M", 0, 8, 30, 8, 0, false),
     new Species("Lizardfolk", 2, 2, 0, 0, 0, 0, "M", 0, 30, 30, 15, 0, false),
-    new Species("Trox", 6, 0, 0, -2, -2, -2, "L", 20, 15, 30, 15, 0, false),
-    new Species("Wyrwood", 0, 2, 0, 2, 0, -2, "S", 0, 15, 30, 15, 0, false),
-    new Species("Wyvaran", 0, 2, 0, -2, 2, 0, "M", 0, 15, 30, 15, 30, true)
+    new Species("Trox", 6, 0, 0, -2, -2, -2, "L", 20, 8, 30, 8, 0, false),
+    new Species("Wyrwood", 0, 2, 0, 2, 0, -2, "S", 0, 8, 30, 8, 0, false),
+    new Species("Wyvaran", 0, 2, 0, -2, 2, 0, "M", 0, 8, 30, 8, 30, true)
     };
+
+    public String scale = "C";
+
+    public Terrain[] TERRAIN = {
+    new Terrain("Light Undergrowth", 2, 0.2, 2, 2, 0, 0, 0, -10),
+    new Terrain("Heavy Undergrowth", 4, 0.3, 5, -5, 0, 0, 0, -10),
+    new Terrain("Typical Trees", 0, 0.0, 0, 0, 2, 1, 0, -10),
+    new Terrain("Massive Trees", 0, 0.0, 0, 0, 2, 2, 0, -10),
+    new Terrain("Shallow Bog", 2, 0, 2, 0, 0, 0, 0, -10),
+    new Terrain("Deep Bog", 4, 0, 2, 0, 2, 2, 0, -10),
+    new Terrain("Gradual Slope", 0, 0, 0, 0, 0, 0, 1, -10),
+    new Terrain("Steep Slope", 2, 0, 2, 0, 0, 0, 1, -10),
+    new Terrain("Cliff", 0, 0, 0, 0, 0, 0, 0, 5),
+    new Terrain("Chasm", 0, 0, 0, 0, 0, 0, 0, 5),
+    new Terrain("Scree", 0, 0, 2, 2, 0, 0, 0, -10),
+    new Terrain("Light Rubble", 0, 0, 2, 0, 0, 0, 0, -10),
+    new Terrain("Dense Rubble", 2, 0, 5, 2, 0, 0, 0, -10),
+    new Terrain("Sand Dunes", 1, 0, 1, 0, 0, 0, 0, -10),
+    new Terrain("Water", 0, 0, 0, 0, 8, 4, 0, -10),
+    new Terrain("Normal", 0, 0, 0, 0, 0, 0, 0, -10)
+    };
+	
+    public Terrain[] ForestFundamentals = {TERRAIN[0], TERRAIN[1], TERRAIN[2], TERRAIN[3]};
+    public double[] ForestA = {0.7, 0.2};
+    public double[] ForestB = {0.7, 0.1};
+    public Terrain[] SwampFundamentals = {TERRAIN[0], TERRAIN[1], TERRAIN[4], TERRAIN[5]};
+    public double[] SwampA = {0.2, 0.2};
+    public double[] SwampB = {0.4, 0.2};
+    public Terrain[] AquaticFundamentals = {TERRAIN[14], TERRAIN[15]};
+    public double[] AquaticA = {0.98};
+    public double[] AquaticB = {0.02};
+    public Terrain[] DesertFundamentals = {TERRAIN[0], TERRAIN[11], TERRAIN[12], TERRAIN[13]};
+    public double[] DesertA = {0.05, 0.1, 0.05};
+    public double[] DesertB = {0.5};
+    public Terrain[] PlainsFundamentals = {TERRAIN[0], TERRAIN[1]};
+    public double[] PlainsA = {0.2, 0.1};
+    public double[] PlainsB = {0.03};
+    public Terrain[] HillsFundamentals = {TERRAIN[6], TERRAIN[7], TERRAIN[8], TERRAIN[9], TERRAIN[0], TERRAIN[10], TERRAIN[12]};
+    public double[] HillsA = {0.4, 0.5, 0.1};
+    public double[] HillsB = {0.15};
+    public Terrain[] MountainFundamentals = {TERRAIN[6], TERRAIN[7], TERRAIN[8], TERRAIN[0]};
+    public double[] MountainA = {0.25, 0.55, 0.15, 0.05};
+    public double[] MountainB = {0.1, 0.2, 0.2};
+
+    public Environment[] ENVIRONMENTS = {
+    new Environment("Forest", new Color(34, 139, 34, 204), ForestFundamentals, ForestA, ForestB),
+    new Environment("Swamp", new Color(105, 131, 57, 178), SwampFundamentals, SwampA, SwampB),
+    new Environment("Aquatic", new Color(235, 244, 250, 191), AquaticFundamentals, AquaticA, AquaticB),
+    new Environment("Desert", new Color(229, 201, 159, 165), DesertFundamentals, DesertA, DesertB),
+    new Environment("Plains", new Color(102, 204, 153, 242), PlainsFundamentals, PlainsA, PlainsB),
+    new Environment("Hills", new Color(122, 135, 111, 216), HillsFundamentals, HillsA, HillsB),
+    new Environment("Mountain", new Color(177, 171, 154, 229), MountainFundamentals, MountainA, MountainB),
+    };
+	
+    public Species[] Inhabitants = {SPECIES[6]};
+
+    public Plane[] PLANES = {
+    new Plane("Material", Inhabitants),
+    new Plane("Firstworld", Inhabitants),
+    new Plane("Shadow", Inhabitants),
+    new Plane("Earth", Inhabitants),
+    new Plane("Water", Inhabitants),
+    new Plane("Air", Inhabitants),
+    new Plane("Fire", Inhabitants),
+    new Plane("Positive", Inhabitants),
+    new Plane("Negative", Inhabitants),
+    new Plane("Ethereal", Inhabitants),
+    new Plane("Elysium", Inhabitants),
+    new Plane("Nirvana", Inhabitants),
+    new Plane("Heaven", Inhabitants),
+    new Plane("Utopia", Inhabitants),
+    new Plane("Purgatory", Inhabitants),
+    new Plane("Limbo", Inhabitants),
+    new Plane("Abyss", Inhabitants),
+    new Plane("Abbadon", Inhabitants),
+    new Plane("Hell", Inhabitants),
+    new Plane("Astral", Inhabitants)
+    };
+
+    public Environment[][] Universe = new Environment[20][100];
+    {
+    for(int i = 0; i<PLANES.length; i++) {
+    for(int j = 0; j<100; j++) {
+    Universe[i][j] = ENVIRONMENTS[4];
+    }
+    }
+    }
     
     public String[] quotes = {
         
@@ -149,96 +239,144 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
 
 public void paint(Graphics g) {
     super.paint(g);
-    g.setColor(Color.BLACK);
-    g.fillRect(0, 0, 500, 500);
+    if(scale == "C") {
+	g.clearRect(0, 0, 500, 500);
+        for(int i=0; i<225; i++) {
+	g.setColor(Universe[playerX1+playerY1][playerX2+playerY2].color);
+    	g.fillRect((((i-1)%15)*30)+1, (((i-1)/15)*30)-1, 29, 29);
+	}
+    } else if(scale == "B") {
+	g.clearRect(0, 0, 500, 500);
+        for(int i=0; i<100; i++) {
+	g.setColor(Universe[playerX1+playerY1][playerX2+playerY2].color);
+    	g.fillRect((((i-1)%10)*30)+1, (((i-1)/10)*30)-1, 29, 29);
+	}
+    } else {
+	g.clearRect(0, 0, 500, 500);
+        for(int i=0; i<25; i++) {
+	g.setColor(Universe[playerX1+playerY1][playerX2+playerY2].color);
+    	g.fillRect((((i-1)%5)*30)+1, (((i-1)/5)*30)-1, 29, 29);
+	}
+    }
     g.setColor(Color.WHITE);
-    g.fillRect(0, paddle1Y, 10, 100);
-    g.fillRect(490, paddle2Y, 10, 100);
-    g.fillOval(ballX, ballY, 10, 10);
-    g.drawString("Player 1: " + player1Score, 50, 50);
-    g.drawString("Player 2: " + player2Score, 400, 50);
+    g.fillOval(playerX, playerY, 30, 30);
+    g.drawString("Player Level: " + playerScore, 50, 50);
 }
 
-public void moveBall() {
-    ballX += ballXSpeed;
-    ballY += ballYSpeed;
-    if (ballY < 0 || ballY > 490) {
-        ballYSpeed = -ballYSpeed;
+public void moveplayers() {
+    if (upPressed) {
+        playerY -= 5;
     }
-    if (ballX < 10) {
-        if (ballY > paddle1Y && ballY < paddle1Y + 100) {
-            ballXSpeed = -ballXSpeed;
-        } else {
-            player2Score++;
-            ballX = 250;
-            ballY = 250;
-        }
+    if (downPressed) {
+        playerY += 5;
     }
-    if (ballX > 480) {
-        if (ballY > paddle2Y && ballY < paddle2Y + 100) {
-            ballXSpeed = -ballXSpeed;
-        } else {
-            player1Score++;
-            ballX = 250;
-            ballY = 250;
-        }
+    if (rightPressed) {
+        playerX += 5;
     }
-}
+    if (leftPressed) {
+        playerX -= 5;
+    }
+    if (playerY < 0) {
+        playerY = 0;
+    }
+    if (playerY > 400) {
+        playerY = 400;
+    }
+    if (playerX < 0) {
+        playerX = 0;
+    }
+    if (playerX > 400) {
+        playerX = 400;
+    }
+    if (iPressed) {
+	switch(scale) {
+		case "B":
+			scale = "C";
+			try {
+            			Thread.sleep(333); 
+        		} catch (InterruptedException e) {
+            			Thread.currentThread().interrupt();
+            			System.err.println("Thread interrupted during sleep: " + e.getMessage());
+        		}
+			break;
+		case "A":
+			scale = "B";
+			try {
+            			Thread.sleep(333); 
+        		} catch (InterruptedException e) {
+            			Thread.currentThread().interrupt();
+            			System.err.println("Thread interrupted during sleep: " + e.getMessage());
+        		}
+			break;
+		default:
+			break;
+	}
+    }
+    if (oPressed) {
+	switch(scale) {
+		case "C":
+			scale = "B";
+			try {
+            			Thread.sleep(333); 
+        		} catch (InterruptedException e) {
+            			Thread.currentThread().interrupt();
+            			System.err.println("Thread interrupted during sleep: " + e.getMessage());
+        		}
 
-public void movePaddles() {
-    if (upPressed1) {
-        paddle1Y -= 5;
-    }
-    if (downPressed1) {
-        paddle1Y += 5;
-    }
-    if (upPressed2) {
-        paddle2Y -= 5;
-    }
-    if (downPressed2) {
-        paddle2Y += 5;
-    }
-    if (paddle1Y < 0) {
-        paddle1Y = 0;
-    }
-    if (paddle1Y > 400) {
-        paddle1Y = 400;
-    }
-    if (paddle2Y < 0) {
-        paddle2Y = 0;
-    }
-    if (paddle2Y > 400) {
-        paddle2Y = 400;
+			break;
+		case "B":
+			scale = "A";
+			try {
+            			Thread.sleep(333); 
+        		} catch (InterruptedException e) {
+            			Thread.currentThread().interrupt();
+            			System.err.println("Thread interrupted during sleep: " + e.getMessage());
+        		}
+			break;
+	}
     }
 }
 
 public void keyPressed(KeyEvent e) {
-    if (e.getKeyCode() == KeyEvent.VK_UP) {
-        upPressed2 = true;
-    }
-    if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-        downPressed2 = true;
-    }
     if (e.getKeyCode() == KeyEvent.VK_W) {
-        upPressed1 = true;
+        upPressed = true;
     }
     if (e.getKeyCode() == KeyEvent.VK_S) {
-        downPressed1 = true;
+        downPressed = true;
     }
+    if (e.getKeyCode() == KeyEvent.VK_D) {
+        rightPressed = true;
+    }
+    if (e.getKeyCode() == KeyEvent.VK_A) {
+        leftPressed = true;
+    }
+    if (e.getKeyCode() == KeyEvent.VK_I) {
+        iPressed = true;
+    }
+    if (e.getKeyCode() == KeyEvent.VK_O) {
+        oPressed = true;
+    }
+
 }
 
 public void keyReleased(KeyEvent e) {
-    if (e.getKeyCode() == KeyEvent.VK_UP) {
-        upPressed2 = false;
-    }
-    if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-        downPressed2 = false;
-    }
     if (e.getKeyCode() == KeyEvent.VK_W) {
-        upPressed1 = false;
+        upPressed = false;
     }
     if (e.getKeyCode() == KeyEvent.VK_S) {
-        downPressed1 = false;
+        downPressed = false;
+    }
+    if (e.getKeyCode() == KeyEvent.VK_D) {
+        rightPressed = false;
+    }
+    if (e.getKeyCode() == KeyEvent.VK_A) {
+        leftPressed = false;
+    }
+    if (e.getKeyCode() == KeyEvent.VK_I) {
+        iPressed = false;
+    }
+    if (e.getKeyCode() == KeyEvent.VK_O) {
+        oPressed = false;
     }
 }
 
@@ -247,9 +385,8 @@ public void keyTyped(KeyEvent e) {
 
 public static void main(String[] args) {
     PathfinderFirstEdition game = new PathfinderFirstEdition();
-    while (true) {
-        game.moveBall();
-        game.movePaddles();
+    while (true) { 
+        game.moveplayers();
         game.repaint();
         try {
             Thread.sleep(10);
