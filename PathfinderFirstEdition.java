@@ -20,46 +20,47 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
     private boolean upPressed2 = false;
     private boolean downPressed2 = false;
 
-    public final Species[] SPECIES = new Species[37];
-    SPECIES[0] = new Species("Dwarf", 0, 0, 2, 0, 2, -2, "M", 0, 15, 20, 15, 0);
-    SPECIES[1] = new Species("Elf", 0, 2, -2, 2, 0, 0, "M", 0, 15, 30, 15, 0);
-    SPECIES[2] = new Species("Gnome", -2, 0, 2, 0, 0, 2, "S", 0, 15, 20, 15, 0);
-    SPECIES[3] = new Species("Half-Elf", 0, 0, 0, 0, 0, 0, "M", 0, 15, 30, 15, 0, true);
-    SPECIES[4] = new Species("Half-Orc", 0, 0, 0, 0, 0, 0, "M", 0, 15, 30, 15, 0, true);
-    SPECIES[5] = new Species("Halfling", -2, 2, 0, 0, 0, 2, "M", 0, 15, 20, 15, 0);
-    SPECIES[6] = new Species("Human", 0, 0, 0, 0, 0, 0, "M", 0, 15, 30, 15, 0, true);
-    SPECIES[7] = new Species("Aasimar", 0, 0, 0, 0, 2, 2, "M", 0, 15, 30, 15, 0);
-    SPECIES[8] = new Species("Catfolk", 0, 2, 0, 0, -2, 2, "M", 0, 15, 30, 15, 0);
-    SPECIES[9] = new Species("Dhampir", 0, 2, -2, 0, 0, 2, "M", 0, 15, 30, 15, 0);
-    SPECIES[10] = new Species("Drow", 0, 2, -2, 0, 0, 2, "M", 0, 15, 30, 15, 0);
-    SPECIES[11] = new Species("Drow Noble", 0, 4, -2, 2, 2, 2, "M", 0, 15, 30, 15, 0);
-    SPECIES[12] = new Species("Duergar", 0, 0, 2, 0, 2, -4, "M", 0, 15, 20, 15, 0);
-    SPECIES[13] = new Species("Fetchling", 0, 2, 0, 0, -2, 2, "M", 0, 15, 30, 15, 0);
-    SPECIES[14] = new Species("Goblin", -2, 4, 0, 0, 0, 2, "S", 0, 15, 30, 15, 0);
-    SPECIES[15] = new Species("Grippli", -2, 2, 0, 0, 2, 0, "S", 0, 15, 30, 20, 0);
-    SPECIES[16] = new Species("Hobgoblin", 0, 2, 2, 0, 0, 0, "M", 0, 15, 30, 15, 0);
-    SPECIES[17] = new Species("Ifrit", 0, 2, 0, 0, -2, 2, "M", 0, 15, 30, 15, 0);
-    SPECIES[18] = new Species("Kobold", -4, 2, -2, 0, 0, 0, "M", 0, 15, 30, 15, 0);
-    SPECIES[19] = new Species("Orc", 4, 0, 0, -2, -2, -2, "M", 0, 15, 30, 15, 0);
-    SPECIES[20] = new Species("Oread", 2, 0, 0, 0, 2, -2, "M", 0, 15, 20, 15, 0);
-    SPECIES[21] = new Species("Ratfolk", -2, 2, 0, 2, 0, 0, "S", 0, 15, 20, 15, 0);
-    SPECIES[22] = new Species("Suli", 2, 0, 0, -2, 0, 2, "M", 0, 15, 30, 15, 0);
-    SPECIES[23] = new Species("Svirfneblin", -2, 2, 0, 0, 2, -4, "S", 0, 15, 20, 15, 0);
-    SPECIES[24] = new Species("Sylph", 0, 2, -2, 2, 0, 0, "M", 0, 15, 30, 15, 0);
-    SPECIES[25] = new Species("Tengu", 0, 2, -2, 0, 2, 0, "M", 0, 15, 30, 15, 0);
-    SPECIES[26] = new Species("Tiefling", 0, 2, 0, 2, 0, -2, "M", 0, 15, 30, 15, 0);
-    SPECIES[27] = new Species("Undine", -2, 2, 0, 0, 2, 0, "M", 20, 30, 15, 0);
-    SPECIES[28] = new Species("Vanara", 0, 2, 0, 0, 2, -2, "M", 0, 15, 30, 20, 0);
-    SPECIES[29] = new Species("Vishkanya", 0, 2, 0, 0, -2, 2, "M", 0, 15, 30, 15, 0);
-    SPECIES[30] = new Species("Gathlain", 0, 2, -2, 0, 0, 2, "S", 0, 15, 30, 15, 40);
-    SPECIES[31] = new Species("Gnoll", 2, 2, 0, 0, 0, 0, "M", 0, 15, 30, 15, 0);
-    SPECIES[32] = new Species("Kasatha", 0, 2, 0, 0, 2, 0, "M", 0, 15, 30, 15, 0);
-    SPECIES[33] = new Species("Lizardfolk", 2, 2, 0, 0, 0, 0, "M", 30, 30, 15, 0);
-    SPECIES[34] = new Species("Trox", 6, 0, 0, -2, -2, -2, "L", 20, 15, 30, 15, 0);
-    SPECIES[35] = new Species("Wyrwood", 0, 2, 0, 2, 0, -2, "S", 0, 15, 30, 15, 0);
-    SPECIES[36] = new Species("Wyvaran", 0, 2, 0, -2, 2, 0, "M", 0, 15, 30, 15, 30);
+    public Species[] SPECIES = {
+    new Species("Dwarf", 0, 0, 2, 0, 2, -2, "M", 0, 15, 20, 15, 0, false),
+    new Species("Elf", 0, 2, -2, 2, 0, 0, "M", 0, 15, 30, 15, 0, false),
+    new Species("Gnome", -2, 0, 2, 0, 0, 2, "S", 0, 15, 20, 15, 0, false),
+    new Species("Half-Elf", 0, 0, 0, 0, 0, 0, "M", 0, 15, 30, 15, 0, true),
+    new Species("Half-Orc", 0, 0, 0, 0, 0, 0, "M", 0, 15, 30, 15, 0, true),
+    new Species("Halfling", -2, 2, 0, 0, 0, 2, "M", 0, 15, 20, 15, 0, false),
+    new Species("Human", 0, 0, 0, 0, 0, 0, "M", 0, 15, 30, 15, 0, true),
+    new Species("Aasimar", 0, 0, 0, 0, 2, 2, "M", 0, 15, 30, 15, 0, false),
+    new Species("Catfolk", 0, 2, 0, 0, -2, 2, "M", 0, 15, 30, 15, 0, false),
+    new Species("Dhampir", 0, 2, -2, 0, 0, 2, "M", 0, 15, 30, 15, 0, false),
+    new Species("Drow", 0, 2, -2, 0, 0, 2, "M", 0, 15, 30, 15, 0, false),
+    new Species("Drow Noble", 0, 4, -2, 2, 2, 2, "M", 0, 15, 30, 15, 0, false),
+    new Species("Duergar", 0, 0, 2, 0, 2, -4, "M", 0, 15, 20, 15, 0, false),
+    new Species("Fetchling", 0, 2, 0, 0, -2, 2, "M", 0, 15, 30, 15, 0, false),
+    new Species("Goblin", -2, 4, 0, 0, 0, 2, "S", 0, 15, 30, 15, 0, false),
+    new Species("Grippli", -2, 2, 0, 0, 2, 0, "S", 0, 15, 30, 20, 0, false),
+    new Species("Hobgoblin", 0, 2, 2, 0, 0, 0, "M", 0, 15, 30, 15, 0, false),
+    new Species("Ifrit", 0, 2, 0, 0, -2, 2, "M", 0, 15, 30, 15, 0, false),
+    new Species("Kobold", -4, 2, -2, 0, 0, 0, "M", 0, 15, 30, 15, 0, false),
+    new Species("Orc", 4, 0, 0, -2, -2, -2, "M", 0, 15, 30, 15, 0, false),
+    new Species("Oread", 2, 0, 0, 0, 2, -2, "M", 0, 15, 20, 15, 0, false),
+    new Species("Ratfolk", -2, 2, 0, 2, 0, 0, "S", 0, 15, 20, 15, 0, false),
+    new Species("Suli", 2, 0, 0, -2, 0, 2, "M", 0, 15, 30, 15, 0, false),
+    new Species("Svirfneblin", -2, 2, 0, 0, 2, -4, "S", 0, 15, 20, 15, 0, false),
+    new Species("Sylph", 0, 2, -2, 2, 0, 0, "M", 0, 15, 30, 15, 0, false),
+    new Species("Tengu", 0, 2, -2, 0, 2, 0, "M", 0, 15, 30, 15, 0, false),
+    new Species("Tiefling", 0, 2, 0, 2, 0, -2, "M", 0, 15, 30, 15, 0, false),
+    new Species("Undine", -2, 2, 0, 0, 2, 0, "M", 0, 20, 30, 15, 0, false),
+    new Species("Vanara", 0, 2, 0, 0, 2, -2, "M", 0, 15, 30, 20, 0, true),
+    new Species("Vishkanya", 0, 2, 0, 0, -2, 2, "M", 0, 15, 30, 15, 0, false),
+    new Species("Gathlain", 0, 2, -2, 0, 0, 2, "S", 0, 15, 30, 15, 40, false),
+    new Species("Gnoll", 2, 2, 0, 0, 0, 0, "M", 0, 15, 30, 15, 0, false),
+    new Species("Kasatha", 0, 2, 0, 0, 2, 0, "M", 0, 15, 30, 15, 0, false),
+    new Species("Lizardfolk", 2, 2, 0, 0, 0, 0, "M", 0, 30, 30, 15, 0, false),
+    new Species("Trox", 6, 0, 0, -2, -2, -2, "L", 20, 15, 30, 15, 0, false),
+    new Species("Wyrwood", 0, 2, 0, 2, 0, -2, "S", 0, 15, 30, 15, 0, false),
+    new Species("Wyvaran", 0, 2, 0, -2, 2, 0, "M", 0, 15, 30, 15, 30, true)
+    };
     
-    private String[] quotes = {
+    public String[] quotes = {
         
         "The tower of power!",
         "Well, I, uh.",
@@ -86,7 +87,7 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
         "Hey'a'oh, you'a'oh, does your momma know, you're going down the road, to see your little girlie'o!",
 
         "Hey flowrizzle, the super from across the street!",
-        "Rock and roll, coochie-coo!"
+        "Rock and roll, coochie-coo!",
 
         "So, how'd you like the play?",
 
@@ -102,34 +103,29 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
 
         "Godspeed.",
 
-        "That's what we can say about it then!",
+        "That's what we can say about it then!"
         
-    }
-
-    private String[] species = {
-        "https://www.d20pfsrd.com/gamemastering/other-rules/creating-new-races/"
-        "not: Centaur, Drider, Gargoyle, Ogre"
-    }
+    };
     
-    private String[] spells = {
+    public String[] spells = {
     "0th: create water, detect magic, ghost sound, guidance, light, mending, purify food and drink, read magic, stabilize, touch of fatigue.",
     "1st: bless, burning hands, cause fear, command, comprehend languages, cure light wounds, detect chaos, detect evil, detect good, detect law, endure elements, obscuring mist, protection from chaos, protection from evil, protection from good, protection from law, sleep.",
     "2nd: aid, animal trance, bear's endurance, bull's strength, cat's grace, cure moderate wounds, darkness, delay poison, invisibility, mirror image, resist energy, scorching ray, see invisibility, web.",
     "3rd: animate dead, bestow curse, contagion, continual flame, cure serious wounds, daylight, deeper darkness, lightning bolt, neutralize poison, remove curse, remove disease, tongues.",
     "4th: cure critical wounds, minor creation, polymorph, restoration, stoneskin, wall of fire.",
     "5th: baleful polymorph, break enchantment, commune, heal, major creation, raise dead, true seeing, wall of stone."
-    }
+    };
 
-    private String[] skills = {
+    public String[] skills = {
     "Acrobatics, Appraise, Bluff, Climb, Craft, Diplomacy, Disable Device, Disguise, Escape Artist, Fly, Handle Animal, Heal, Intimidate, Knowledge, Linguistics, Perception, Perform, Profession, Ride, Sense Motive, Sleight of Hand, Spellcraft, Stealth, Survival, Swim, Use Magic Device"
-    }
+    };
 
 
-    private String[] classskills = {
+    public String[] classskills = {
     "Craft, Handle Animal, Heal, Knowledge (all skills taken individually), Profession, Spellcraft, and Survival."
-    }
+    };
 
-    private String[] feats = {
+    public String[] feats = {
     "Caster: Cleave, Combat Casting, Eschew Materials, Improved Initiative, Iron Will, item creation feats (all), Lightning Reflexes, metamagic feats (all), Natural Spell, Power Attack, Spell Focus, Spell Penetration, Toughness, and Weapon Focus.",
     "Finesse: Combat Expertise, Combat Reflexes, Dazzling Display, Deadly Stroke, Dodge, Greater Vital Strike, Improved Disarm, Improved Feint, Improved Trip, Improved Vital Strike, Mobility, Spring Attack, Shatter Defenses, Vital Strike, Weapon Finesse, and Whirlwind Attack.",
     "Unarmed: Combat Reflexes, Deflect Arrows, Dodge, Gorgon’s Fist, Improved Grapple, Improved Initiative, Improved Unarmed Strike, Medusa’s Wrath, Mobility, Scorpion Style, Snatch Arrows, Spring Attack, Stunning Fist, and Weapon Focus.",
@@ -139,10 +135,10 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
     "Two-Weapon: Combat Reflexes, Dodge, Double Slice, Greater Two-Weapon Fighting, Greater Vital Strike, Improved Critical, Improved Initiative, Improved Two-Weapon Fighting, Improved Vital Strike, Two-Weapon Defense, Two-Weapon Fighting, Two-Weapon Rend, Vital Strike, and Weapon Focus.",
     "Ranged: Deadly Aim, Far Shot, Greater Vital Strike, Improved Initiative, Improved Vital Strike, Manyshot, Pinpoint Targeting, Point-Blank Shot, Precise Shot, Rapid Reload, Rapid Shot, Shot on the Run, Vital Strike, and Weapon Focus.",
     "Skill: Armor Proficiency (all), Great Fortitude, Improved Initiative, Iron Will, Lightning Reflexes, Martial Weapon Proficiency, Run, Shield Proficiency, Skill Focus, and Toughness."
-    }
+    };
     
-    public PongGame() {
-    JFrame frame = new JFrame("Pong Game");
+    public PathfinderFirstEdition() {
+    JFrame frame = new JFrame("Pathfinder First Edition");
     frame.setSize(500, 500);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.add(this);

@@ -1,5 +1,8 @@
 public class Gear {
-  public Gear(name, price) {
-    
+  public String name;
+  public double price;
+  public Gear(String name, double price) {
+    this.name = name; 
+    this.price = price;
   }
 }

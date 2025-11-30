@@ -1,25 +1,39 @@
 public class Character {
-  Character(name, species, level, alignment, str, dex, con, int, wis, cha) {
+  public String name;
+  public Species species;
+  public int level;
+  public int fort;
+  public int ref;
+  public int will;
+  public int bab;
+  public String alignment;
+  public int strength;
+  public int dexterity;
+  public int constitution;
+  public int intelligence;
+  public int wisdom;
+  public int charisma;
+  Character(String name, Species species, int level, String alignment, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
     this.name = name;
     this.species = species;
     this.level = level;
-    this.fort = Math.floor(level/3);
-    this.ref = Math.floor(level/3);
-    this.will = Math.floor(level/2)+2;
-    this.bab = Math.floor(level/2);
+    this.fort = (int) Math.floor(level/3);
+    this.ref = (int) Math.floor(level/3);
+    this.will = (int) Math.floor(level/2)+2;
+    this.bab = (int) Math.floor(level/2);
     this.alignment = alignment;
-    this.str = str + this.species.str;
-    this.dex = dex + this.species.dex;
-    this.con = con + this.species.con;
-    this.int = int + this.species.int;
-    this.wis = wis + this.species.wis;
-    this.cha = cha + this.species.cha;
+    this.strength = strength + this.species.strength;
+    this.dexterity = dexterity + this.species.dexterity;
+    this.constitution = constitution + this.species.constitution;
+    this.intelligence = intelligence + this.species.intelligence;
+    this.wisdom = wisdom + this.species.wisdom;
+    this.charisma = charisma + this.species.charisma;
   }
-  public leveling(amount) {
+  public void leveling(int amount) {
     this.level += amount;
-    this.fort = Math.floor(level/3);
-    this.ref = Math.floor(level/3);
-    this.will = Math.floor(level/2)+2;
-    this.bab = Math.floor(level/2);
+    this.fort = (int) Math.floor(level/3);
+    this.ref = (int) Math.floor(level/3);
+    this.will = (int) Math.floor(level/2)+2;
+    this.bab = (int) Math.floor(level/2);
   } 
 }
