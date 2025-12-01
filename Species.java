@@ -13,7 +13,7 @@ public class Species {
   public int climb;
   public int fly;
   public boolean variation;
-  Species(String name, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, String size, int burrow, int swim, int land, int climb, int fly, boolean variation) {
+  public Species(String name, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, String size, int burrow, int swim, int land, int climb, int fly, boolean variation) {
     this.name = name;
     this.strength = strength;
     this.dexterity = dexterity;

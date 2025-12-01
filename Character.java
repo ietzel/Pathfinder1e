@@ -13,7 +13,7 @@ public class Character {
   public int intelligence;
   public int wisdom;
   public int charisma;
-  Character(String name, Species species, int level, String alignment, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
+  public Character(String name, Species species, int level, String alignment, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
     this.name = name;
     this.species = species;
     this.level = level;

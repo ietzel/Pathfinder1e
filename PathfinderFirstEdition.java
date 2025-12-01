@@ -19,13 +19,6 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
     private boolean oPressed = false;
 
     public Species[] SPECIES = {
-    new Species("Dwarf", 0, 0, 2, 0, 2, -2, "M", 0, 5, 20, 5, 0, false),
-    new Species("Elf", 0, 2, -2, 2, 0, 0, "M", 0, 8, 30, 8, 0, false),
-    new Species("Gnome", -2, 0, 2, 0, 0, 2, "S", 0, 5, 20, 5, 0, false),
-    new Species("Half-Elf", 0, 0, 0, 0, 0, 0, "M", 0, 8, 30, 8, 0, true),
-    new Species("Half-Orc", 0, 0, 0, 0, 0, 0, "M", 0, 8, 30, 8, 0, true),
-    new Species("Halfling", -2, 2, 0, 0, 0, 2, "M", 0, 5, 20, 5, 0, false),
-    new Species("Human", 0, 0, 0, 0, 0, 0, "M", 0, 8, 30, 8, 0, true),
     new Species("Aasimar", 0, 0, 0, 0, 2, 2, "M", 0, 8, 30, 8, 0, false),
     new Species("Catfolk", 0, 2, 0, 0, -2, 2, "M", 0, 8, 30, 8, 0, false),
     new Species("Changeling", 0, 0, -2, 0, 2, 2, "M", 0, 8, 30, 8, 0, false),
@@ -33,13 +26,24 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
     new Species("Drow", 0, 2, -2, 0, 0, 2, "M", 0, 8, 30, 8, 0, false),
     new Species("Drow Noble", 0, 4, -2, 2, 2, 2, "M", 0, 8, 30, 8, 0, false),
     new Species("Duergar", 0, 0, 2, 0, 2, -4, "M", 0, 5, 20, 5, 0, false),
+    new Species("Dwarf", 0, 0, 2, 0, 2, -2, "M", 0, 5, 20, 5, 0, false),
+    new Species("Elf", 0, 2, -2, 2, 0, 0, "M", 0, 8, 30, 8, 0, false),
     new Species("Fetchling", 0, 2, 0, 0, -2, 2, "M", 0, 8, 30, 8, 0, false),
+    new Species("Gathlain", 0, 2, -2, 0, 0, 2, "S", 0, 8, 30, 8, 40, false),
+    new Species("Gnoll", 2, 2, 0, 0, 0, 0, "M", 0, 8, 30, 8, 0, false),
+    new Species("Gnome", -2, 0, 2, 0, 0, 2, "S", 0, 5, 20, 5, 0, false),
     new Species("Goblin", -2, 4, 0, 0, 0, 2, "S", 0, 8, 30, 8, 0, false),
     new Species("Grippli", -2, 2, 0, 0, 2, 0, "S", 0, 15, 30, 20, 0, false),
+    new Species("Half-Elf", 0, 0, 0, 0, 0, 0, "M", 0, 8, 30, 8, 0, true),
+    new Species("Half-Orc", 0, 0, 0, 0, 0, 0, "M", 0, 8, 30, 8, 0, true),
+    new Species("Halfling", -2, 2, 0, 0, 0, 2, "M", 0, 5, 20, 5, 0, false),
     new Species("Hobgoblin", 0, 2, 2, 0, 0, 0, "M", 0, 8, 30, 8, 0, false),
+    new Species("Human", 0, 0, 0, 0, 0, 0, "M", 0, 8, 30, 8, 0, true),
     new Species("Ifrit", 0, 2, 0, 0, -2, 2, "M", 0, 8, 30, 8, 0, false),
+    new Species("Kasatha", 0, 2, 0, 0, 2, 0, "M", 0, 8, 30, 8, 0, false),
     new Species("Kitsune", -2, 2, 0, 0, 0, 2, "M", 0, 8, 30, 8, 0, false),
     new Species("Kobold", -4, 2, -2, 0, 0, 0, "M", 0, 8, 30, 8, 0, false),
+    new Species("Lizardfolk", 2, 2, 0, 0, 0, 0, "M", 0, 30, 30, 15, 0, false),
     new Species("Merfolk", 0, 2, 2, 0, 0, 2, "M", 0, 50, 5, 5, 0, false),
     new Species("Orc", 4, 0, 0, -2, -2, -2, "M", 0, 8, 30, 8, 0, false),
     new Species("Oread", 2, 0, 0, 0, 2, -2, "M", 0, 5, 20, 5, 0, false),
@@ -50,17 +54,69 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
     new Species("Sylph", 0, 2, -2, 2, 0, 0, "M", 0, 8, 30, 8, 0, false),
     new Species("Tengu", 0, 2, -2, 0, 2, 0, "M", 0, 8, 30, 8, 0, false),
     new Species("Tiefling", 0, 2, 0, 2, 0, -2, "M", 0, 8, 30, 8, 0, false),
+    new Species("Trox", 6, 0, 0, -2, -2, -2, "L", 20, 8, 30, 8, 0, false),    
     new Species("Undine", -2, 2, 0, 0, 2, 0, "M", 0, 20, 30, 15, 0, false),
     new Species("Vanara", 0, 2, 0, 0, 2, -2, "M", 0, 15, 30, 20, 0, true),
     new Species("Vishkanya", 0, 2, 0, 0, -2, 2, "M", 0, 8, 30, 8, 0, false),
     new Species("Wayang", 0, 2, 0, 2, -2, 0, "S", 0, 5, 20, 5, 0, false),
-    new Species("Gathlain", 0, 2, -2, 0, 0, 2, "S", 0, 8, 30, 8, 40, false),
-    new Species("Gnoll", 2, 2, 0, 0, 0, 0, "M", 0, 8, 30, 8, 0, false),
-    new Species("Kasatha", 0, 2, 0, 0, 2, 0, "M", 0, 8, 30, 8, 0, false),
-    new Species("Lizardfolk", 2, 2, 0, 0, 0, 0, "M", 0, 30, 30, 15, 0, false),
-    new Species("Trox", 6, 0, 0, -2, -2, -2, "L", 20, 8, 30, 8, 0, false),
     new Species("Wyrwood", 0, 2, 0, 2, 0, -2, "S", 0, 8, 30, 8, 0, false),
     new Species("Wyvaran", 0, 2, 0, -2, 2, 0, "M", 0, 8, 30, 8, 30, true)
+    };
+
+    public Species[] campaignA = {SPECIES[19]};
+    public Species[] campaignB = {SPECIES[19]};
+    public Species[] campaignC = {SPECIES[19]};
+    public Species[] campaignD = {SPECIES[19]};
+    public Species[] campaignE = {SPECIES[19]};
+    public Species[] campaignF = {SPECIES[19]};
+    public Species[] campaignG = {SPECIES[19]};
+    public Species[] campaignH = {SPECIES[19]};
+    public Species[] campaignI = {SPECIES[19]};
+    public Species[] campaignJ = {SPECIES[19]};
+    public Species[] campaignK = {SPECIES[19]};
+    public Species[] campaignL = {SPECIES[19]};
+    public Species[] campaignM = {SPECIES[19]};
+    public Species[] campaignN = {SPECIES[19]};
+    public Species[] campaignO = {SPECIES[19]};
+    public Species[] campaignP = {SPECIES[19]};
+    public Species[] campaignQ = {SPECIES[19]};
+    public Species[] campaignR = {SPECIES[19]};
+    public Species[] campaignS = {SPECIES[19]};
+    public Species[] campaignT = {SPECIES[19]};
+    public Species[] campaignU = {SPECIES[19]};
+    public Species[] campaignV = {SPECIES[19]};
+    public Species[] campaignW = {SPECIES[19]};
+    public Species[] campaignX = {SPECIES[19]};
+    public Species[] campaignY = {SPECIES[19]};
+    public Species[] campaignZ = {SPECIES[19]};
+
+    public Campaign[] CAMPAIGNS = {
+    new Campaign("Arms Dealing", 42, campaignA),
+    new Campaign("Redemption", 100, campaignB),
+    new Campaign("Mining Incident", 10, campaignC),
+    new Campaign("Reconciling", 250, campaignD),
+    new Campaign("Sentient Forest", 69, campaignE),
+    new Campaign("Uprising", 1000, campaignF),
+    new Campaign("Mad Science", 1, campaignG),
+    new Campaign("Mystery", 1, campaignH),
+    new Campaign("Extreme Tomb", 1, campaignI),
+    new Campaign("Fallacity", 1, campaignJ),
+    new Campaign("Army Partition", 82861, campaignK),
+    new Campaign("Persecution", 1, campaignL),
+    new Campaign("", 1, campaignM),
+    new Campaign("", 1, campaignN),
+    new Campaign("", 1, campaignO),
+    new Campaign("", 1, campaignP),
+    new Campaign("", 1, campaignQ),
+    new Campaign("", 1, campaignR),
+    new Campaign("", 1, campaignS),
+    new Campaign("", 1, campaignT),
+    new Campaign("", 1, campaignU),
+    new Campaign("", 1, campaignV),
+    new Campaign("", 1, campaignW),
+    new Campaign("", 1, campaignX),
+    new Campaign("", 1, campaignY),
+    new Campaign("", 1, campaignZ)
     };
 
     public String scale = "C";
@@ -116,7 +172,7 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
     new Environment("Mountain", new Color(177, 171, 154, 229), MountainFundamentals, MountainA, MountainB),
     };
 	
-    public Species[] Inhabitants = {SPECIES[6]};
+    public Species[] Inhabitants = {SPECIES[19]};
 
     public Plane[] PLANES = {
     new Plane("Material", Inhabitants),
@@ -142,22 +198,24 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
     };
 
     public Environment[][] Universe = new Environment[20][100];
+    public boolean[][] ExplorationStatus = new boolean[20][100];
     {
     for(int i = 0; i<PLANES.length; i++) {
     for(int j = 0; j<100; j++) {
     Universe[i][j] = ENVIRONMENTS[4];
+    ExplorationStatus[i][j] = false;
     }
     }
     }
     
     public String[] quotes = {
-        
         "The tower of power!",
         "Well, I, uh.",
         "You get the house, the boat, the car, the plane!",
         "You mean to say that you were all, alone?",
         "Interesting, if true.",
         "What the heck is that, what the heck is that?",
+	"Negligee.",
 
         "They just keep driving, driving, driving!",
         
@@ -176,6 +234,8 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
         "Here we go loopy loo, here we go loopy liy, here we go loop'dedoo, all on a saturday night!",
         "Hey'a'oh, you'a'oh, does your momma know, you're going down the road, to see your little girlie'o!",
 
+        "Pro gansta!",
+
         "Hey flowrizzle, the super from across the street!",
         "Rock and roll, coochie-coo!",
 
@@ -193,8 +253,9 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
 
         "Godspeed.",
 
-        "That's what we can say about it then!"
-        
+        "That's what we can say about it then!",
+
+        "Fo to the sho, it is what you make it, and it can be mo."
     };
     
     public String[] spells = {
@@ -249,6 +310,9 @@ public void paint(Graphics g) {
 	g.clearRect(0, 0, 500, 500);
         for(int i=0; i<100; i++) {
 	g.setColor(Universe[playerX1+playerY1][playerX2+playerY2].color);
+	if(ExplorationStatus[playerX1+playerY1][i] == false) {
+	    g.setColor(Color.BLACK);
+	}	
     	g.fillRect((((i-1)%10)*30)+1, (((i-1)/10)*30)-1, 29, 29);
 	}
     } else {
