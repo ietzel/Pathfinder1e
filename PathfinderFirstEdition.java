@@ -310,7 +310,7 @@ public void paint(Graphics g) {
 	g.clearRect(0, 0, 500, 500);
         for(int i=0; i<100; i++) {
 	g.setColor(Universe[playerX1+playerY1][playerX2+playerY2].color);
-	if(ExplorationStatus[playerX1+playerY1][i] == false) {
+	if(ExplorationStatus[playerX2+playerY2][i] == false) {
 	    g.setColor(Color.BLACK);
 	}	
     	g.fillRect((((i-1)%10)*30)+1, (((i-1)/10)*30)-1, 29, 29);
@@ -351,6 +351,21 @@ public void moveplayers() {
     }
     if (playerX > 400) {
         playerX = 400;
+    }
+    playerX3 = (int) playerX / 30;
+    playerY3 = (int) playerY / 30; 
+    playerX2 = (int) playerX / 30;
+    playerY2 = (int) playerY / 30; 
+    playerX1 = (int) playerX / 30;
+    playerY1 = (int) playerY / 30;
+    if(scale == "B") {
+        for(int i=0; i<100; i++) {
+	if(ExplorationStatus[playerX2+playerY2][i] == false) {
+	    if(playerX2+playerY2 == i) {
+	        ExplorationStatus[playerX2+playerY2][i] = true;
+	    }
+	}
+	}
     }
     if (iPressed) {
 	switch(scale) {
