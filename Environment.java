@@ -3,12 +3,14 @@ import java.awt.Color;
 public class Environment {
   public String name; 
   public Color color;
+  public boolean explored;
   public Terrain[] terrain;
   public double[] chancesA;
   public double[] chancesB;
   public Environment(String name, Color color, Terrain[] terrain, double[] chancesA, double[] chancesB) {
     this.name = name;
     this.color = color;
+    this.explored = false;
     this.terrain = terrain;
     this.chancesA = chancesA;
     this.chancesB = chancesB;

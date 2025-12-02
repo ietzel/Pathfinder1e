@@ -7,9 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class PathfinderFirstEdition extends JPanel implements KeyListener {
-    public int playerX3, playerY3, playerX2, playerY2, playerX1, playerY1 = 5;
-    private int playerX = 125;
-    private int playerY = 250;
+    public int playerX3, playerY3, playerX2, playerY2, playerX1, playerY1 = 2;
+    private int playerX = 54;
+    private int playerY = 54;
     private int playerScore = 0;
     private boolean upPressed = false;
     private boolean downPressed = false;
@@ -197,13 +197,21 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
     new Plane("Astral", Inhabitants)
     };
 
-    public Environment[][] Universe = new Environment[20][100];
-    public boolean[][] ExplorationStatus = new boolean[20][100];
+    public Environment[][][][] Universe = new Environment[4][5][10][10];
+    public boolean[][][][] ExplorationStatus = new boolean[4][5][10][10];
     {
-    for(int i = 0; i<PLANES.length; i++) {
-    for(int j = 0; j<100; j++) {
-    Universe[i][j] = ENVIRONMENTS[4];
-    ExplorationStatus[i][j] = false;
+    for(int i = 0; i<4; i++) {
+    for(int j = 0; j<5; j++) {
+    for(int k = 0; k<10; k++) {
+    for(int l = 0; l<10; l++) {
+    int eIndex = (int) (Math.random()*7);
+    if(eIndex > 6) {
+        eIndex = 6;
+    }
+    Universe[i][j][k][l] = ENVIRONMENTS[eIndex];
+    Universe[i][j][k][l].explored = false;
+    }
+    }
     }
     }
     }
@@ -234,6 +242,8 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
         "Here we go loopy loo, here we go loopy liy, here we go loop'dedoo, all on a saturday night!",
         "Hey'a'oh, you'a'oh, does your momma know, you're going down the road, to see your little girlie'o!",
 
+	"Legend has it, until only then.",
+
         "Pro gansta!",
 
         "Hey flowrizzle, the super from across the street!",
@@ -258,14 +268,17 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
         "Fo to the sho, it is what you make it, and it can be mo."
     };
     
-    public String[] spells = {
+    public Spell[] SPELLS = {
+    
+    };
+/*
     "0th: create water, detect magic, ghost sound, guidance, light, mending, purify food and drink, read magic, stabilize, touch of fatigue.",
     "1st: bless, burning hands, cause fear, command, comprehend languages, cure light wounds, detect chaos, detect evil, detect good, detect law, endure elements, obscuring mist, protection from chaos, protection from evil, protection from good, protection from law, sleep.",
     "2nd: aid, animal trance, bear's endurance, bull's strength, cat's grace, cure moderate wounds, darkness, delay poison, invisibility, mirror image, resist energy, scorching ray, see invisibility, web.",
     "3rd: animate dead, bestow curse, contagion, continual flame, cure serious wounds, daylight, deeper darkness, lightning bolt, neutralize poison, remove curse, remove disease, tongues.",
     "4th: cure critical wounds, minor creation, polymorph, restoration, stoneskin, wall of fire.",
     "5th: baleful polymorph, break enchantment, commune, heal, major creation, raise dead, true seeing, wall of stone."
-    };
+*/
 
     public String[] skills = {
     "Acrobatics, Appraise, Bluff, Climb, Craft, Diplomacy, Disable Device, Disguise, Escape Artist, Fly, Handle Animal, Heal, Intimidate, Knowledge, Linguistics, Perception, Perform, Profession, Ride, Sense Motive, Sleight of Hand, Spellcraft, Stealth, Survival, Swim, Use Magic Device"
@@ -303,22 +316,24 @@ public void paint(Graphics g) {
     if(scale == "C") {
 	g.clearRect(0, 0, 500, 500);
         for(int i=0; i<225; i++) {
-	g.setColor(Universe[playerX1+playerY1][playerX2+playerY2].color);
+	g.setColor(Universe[playerX1][playerY1][playerX2][playerY2].color);
     	g.fillRect((((i-1)%15)*30)+1, (((i-1)/15)*30)-1, 29, 29);
 	}
     } else if(scale == "B") {
 	g.clearRect(0, 0, 500, 500);
-        for(int i=0; i<100; i++) {
-	g.setColor(Universe[playerX1+playerY1][playerX2+playerY2].color);
-	if(ExplorationStatus[playerX2+playerY2][i] == false) {
-	    g.setColor(Color.BLACK);
+        for(int i=0; i<10; i++) {
+	for(int j=0; j<10; j++) {
+	g.setColor(Color.BLACK);
+	if(Universe[playerX1][playerY1][i][j].explored == true) {
+	    g.setColor(Universe[playerX1][playerY1][i][j].color);
 	}	
-    	g.fillRect((((i-1)%10)*30)+1, (((i-1)/10)*30)-1, 29, 29);
+    	g.fillRect((i*30)-1, (j*30)-1, 29, 29);
+	}
 	}
     } else {
 	g.clearRect(0, 0, 500, 500);
         for(int i=0; i<25; i++) {
-	g.setColor(Universe[playerX1+playerY1][playerX2+playerY2].color);
+	g.setColor(Universe[playerX1][playerY1][playerX2][playerY2].color);
     	g.fillRect((((i-1)%5)*30)+1, (((i-1)/5)*30)-1, 29, 29);
 	}
     }
@@ -352,20 +367,26 @@ public void moveplayers() {
     if (playerX > 400) {
         playerX = 400;
     }
-    playerX3 = (int) playerX / 30;
-    playerY3 = (int) playerY / 30; 
-    playerX2 = (int) playerX / 30;
-    playerY2 = (int) playerY / 30; 
-    playerX1 = (int) playerX / 30;
-    playerY1 = (int) playerY / 30;
-    if(scale == "B") {
-        for(int i=0; i<100; i++) {
-	if(ExplorationStatus[playerX2+playerY2][i] == false) {
-	    if(playerX2+playerY2 == i) {
-	        ExplorationStatus[playerX2+playerY2][i] = true;
+    if(scale == "C") {
+        playerX3 = (int) playerX / 30;
+        playerY3 = (int) playerY / 30; 
+    } else if(scale == "B") {
+        playerX2 = (int) playerX / 30;
+        playerY2 = (int) playerY / 30; 
+	for(int i=0; i<10; i++) {
+	for(int j=0; j<10; j++) {
+	if(Universe[playerX1][playerY1][i][j].explored == false) {
+	    if(playerX2 == i) {
+		if(playerY2 == j) {
+	            Universe[playerX1][playerY1][i][j].explored = true;
+		}
 	    }
 	}
 	}
+	}
+    } else {
+        playerX1 = (int) playerX / 30;
+        playerY1 = (int) playerY / 30;
     }
     if (iPressed) {
 	switch(scale) {
