@@ -56,11 +56,11 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
     new Species("Tiefling", 0, 2, 0, 2, 0, -2, "M", 0, 8, 30, 8, 0, false),
     new Species("Trox", 6, 0, 0, -2, -2, -2, "L", 20, 8, 30, 8, 0, false),    
     new Species("Undine", -2, 2, 0, 0, 2, 0, "M", 0, 20, 30, 15, 0, false),
-    new Species("Vanara", 0, 2, 0, 0, 2, -2, "M", 0, 15, 30, 20, 0, true),
+    new Species("Vanara", 0, 2, 0, 0, 2, -2, "M", 0, 15, 30, 20, 0, false),
     new Species("Vishkanya", 0, 2, 0, 0, -2, 2, "M", 0, 8, 30, 8, 0, false),
     new Species("Wayang", 0, 2, 0, 2, -2, 0, "S", 0, 5, 20, 5, 0, false),
     new Species("Wyrwood", 0, 2, 0, 2, 0, -2, "S", 0, 8, 30, 8, 0, false),
-    new Species("Wyvaran", 0, 2, 0, -2, 2, 0, "M", 0, 8, 30, 8, 30, true)
+    new Species("Wyvaran", 0, 2, 0, -2, 2, 0, "M", 0, 8, 30, 8, 30, false)
     };
 
     public Species[] campaignA = {SPECIES[19]};
@@ -92,21 +92,21 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
 
     public Campaign[] CAMPAIGNS = {
     new Campaign("Arms Dealing", 42, campaignA),
-    new Campaign("Redemption", 100, campaignB),
-    new Campaign("Mining Incident", 10, campaignC),
-    new Campaign("Reconciling", 250, campaignD),
-    new Campaign("Sentient Forest", 69, campaignE),
-    new Campaign("Uprising", 1000, campaignF),
-    new Campaign("Mad Science", 1, campaignG),
-    new Campaign("Mystery", 1, campaignH),
-    new Campaign("Extreme Tomb", 1, campaignI),
-    new Campaign("Fallacity", 1, campaignJ),
-    new Campaign("Army Partition", 82861, campaignK),
-    new Campaign("Persecution", 1, campaignL),
-    new Campaign("", 1, campaignM),
-    new Campaign("", 1, campaignN),
-    new Campaign("", 1, campaignO),
-    new Campaign("", 1, campaignP),
+    new Campaign("Tower", 100, campaignB),
+    new Campaign("Strange Wreck", 10, campaignC),
+    new Campaign("Redemption", 250, campaignD),
+    new Campaign("Mining Incident", 69, campaignE),
+    new Campaign("Reconciling", 1000, campaignF),
+    new Campaign("Sentient Forest", 1, campaignG),
+    new Campaign("Hospitality", 1, campaignH),
+    new Campaign("Bunker Beasts", 1, campaignI),
+    new Campaign("Uprising", 1, campaignJ),
+    new Campaign("Mad Science", 82861, campaignK),
+    new Campaign("Mystery", 1, campaignL),
+    new Campaign("Extreme Tomb", 1, campaignM),
+    new Campaign("Fallacity", 1, campaignN),
+    new Campaign("Army Partition", 1, campaignO),
+    new Campaign("Persecution", 1, campaignP),
     new Campaign("", 1, campaignQ),
     new Campaign("", 1, campaignR),
     new Campaign("", 1, campaignS),
@@ -174,34 +174,44 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
 	
     public Species[] Inhabitants = {SPECIES[19]};
 
-    public Plane[] PLANES = {
-    new Plane("Material", Inhabitants),
-    new Plane("Firstworld", Inhabitants),
-    new Plane("Shadow", Inhabitants),
-    new Plane("Earth", Inhabitants),
-    new Plane("Water", Inhabitants),
-    new Plane("Air", Inhabitants),
-    new Plane("Fire", Inhabitants),
-    new Plane("Positive", Inhabitants),
-    new Plane("Negative", Inhabitants),
-    new Plane("Ethereal", Inhabitants),
-    new Plane("Elysium", Inhabitants),
-    new Plane("Nirvana", Inhabitants),
-    new Plane("Heaven", Inhabitants),
-    new Plane("Utopia", Inhabitants),
-    new Plane("Purgatory", Inhabitants),
-    new Plane("Limbo", Inhabitants),
-    new Plane("Abyss", Inhabitants),
-    new Plane("Abbadon", Inhabitants),
-    new Plane("Hell", Inhabitants),
-    new Plane("Astral", Inhabitants)
+    public Plane[][] PLANES = {
+    {
+    new Plane("Material", new Color(159, 159, 159, 159), Inhabitants),
+    new Plane("Earth", new Color(165, 42, 42, 191), Inhabitants),
+    new Plane("Elysium", new Color(255, 215, 0, 127 ), Inhabitants),
+    new Plane("Limbo", new Color(191, 168, 63, 127), Inhabitants)
+    },
+    {
+    new Plane("Firstworld", new Color(127, 127, 127, 127), Inhabitants),
+    new Plane("Water", new Color(50, 100, 169, 217), Inhabitants),
+    new Plane("Nirvana", new Color(41, 122, 78, 127), Inhabitants),
+    new Plane("Abyss", new Color(88, 51, 34, 127), Inhabitants)
+    },
+    {
+    new Plane("Shadow", new Color(95, 95, 95, 95), Inhabitants),
+    new Plane("Air", new Color(0, 191, 255, 127), Inhabitants),
+    new Plane("Heaven", new Color(212, 175, 55, 127), Inhabitants),
+    new Plane("Abbadon", new Color(30, 30, 26, 127), Inhabitants)
+    },
+    {
+    new Plane("Positive", new Color(191, 191, 191, 191), Inhabitants),
+    new Plane("Fire", new Color(128, 102, 215, 91), Inhabitants),
+    new Plane("Utopia", new Color(127, 127, 191, 127), Inhabitants),
+    new Plane("Hell", new Color(135, 13, 14, 127), Inhabitants)
+    },
+    {
+    new Plane("Negative", new Color(63, 63, 63, 63), Inhabitants),
+    new Plane("Ethereal", new Color(127, 127, 127, 63), Inhabitants),
+    new Plane("Purgatory", new Color(151, 151, 151, 127), Inhabitants),
+    new Plane("Astral", new Color(89, 89, 89, 15), Inhabitants)
+    }
     };
 
-    public Environment[][][][] Universe = new Environment[4][5][10][10];
-    public boolean[][][][] ExplorationStatus = new boolean[4][5][10][10];
+    public Environment[][][][] Universe = new Environment[5][4][10][10];
+    public boolean[][][][] ExplorationStatus = new boolean[5][4][10][10];
     {
-    for(int i = 0; i<4; i++) {
-    for(int j = 0; j<5; j++) {
+    for(int i = 0; i<5; i++) {
+    for(int j = 0; j<4; j++) {
     for(int k = 0; k<10; k++) {
     for(int l = 0; l<10; l++) {
     int eIndex = (int) (Math.random()*7);
@@ -223,7 +233,7 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
         "You mean to say that you were all, alone?",
         "Interesting, if true.",
         "What the heck is that, what the heck is that?",
-	"Negligee.",
+	    "Negligee.",
 
         "They just keep driving, driving, driving!",
         
@@ -236,13 +246,14 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
         "Oh puddin'!",
 
         "Lasagna with six cheeses!",
+        "Ja Ju Je Jo!",
         
         "A little bit of poison never hurt anybody.",
 
         "Here we go loopy loo, here we go loopy liy, here we go loop'dedoo, all on a saturday night!",
         "Hey'a'oh, you'a'oh, does your momma know, you're going down the road, to see your little girlie'o!",
 
-	"Legend has it, until only then.",
+	    "Legend has it, until only then.",
 
         "Pro gansta!",
 
@@ -257,6 +268,10 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
 
         "Anything goes!",
 
+        "You don't wanna know man!",
+
+        "So, how's your love life?",
+
         "Where, is the scroll?",
 
         "They can take it like champs!",
@@ -269,16 +284,79 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
     };
     
     public Spell[] SPELLS = {
-    
+      new Spell("create water", "conjuration", 0, 0.5, true, true, false, 0.0, 25, 2, -1, 0, "none", false),
+      new Spell("detect magic", "divination", 0, 0.5, true, true, false, 0.0, 60, 0, 0, 10, "none", false),
+      new Spell("ghost sound", "illusion", 0, 0.5, true, true, false, 0.0, 25, 2, 0, 1, "will negates", false),
+      new Spell("guidance", "divination", 0, 0.5, true, true, false, 0.0, 5, 0, -1, 0, "will negates", true),
+      new Spell("light", "evocation", 0, 0.5, true, false, true, 0.0, 5, 0, 0, 100, "none", false),
+      new Spell("mending", "transmutation", 0, 100, true, true, false, 0.0, 10, 0, -1, 0, "will negates", true),
+      new Spell("purify food and drink", "transmutation", 0, 0.5, true, true, false, 0.0, 10, 0, -1, 0, "will negates", true),
+      new Spell("read magic", "divination", 0, 0.5,true, true, true, 0.0, 0, 0, 0, 100, "none", false),
+      new Spell("stabilize", "conjuration", 0, 0.5, true, true, false, 0.0, 25, 2, -1, 0, "none", false),
+      new Spell("touch of fatigue", "necromancy", 0, 0.5, true, true, false, 0.0, 5, 0, 0, 1, "fort negates", true),
+      
+      new Spell("bless", "enchantment", 1, 0.5,true, true, true, 0.0, 50, 0, 0, 10, "none", true), 
+      new Spell("burning hands", "evocation", 1, 0.5, true, true, false, 0.0, 15, 0, -1, 0, "ref half", true),
+      new Spell("cause fear", "necromancy", 1, 0.5, true, true, false, 0.0, 25, 2, 0, 1, "will partial", false),
+      new Spell("command", "enchantment", 1, 0.5, true, false, false, 0.0, 25, 2, 1, 0, "will negates", true),
+      new Spell("comprehend languages", "divination", 1, 0.5,true, true, true, 0.0, 0, 0, 0, 100, "none", false),
+      new Spell("cure light wounds", "conjuration", 1, 0.5, true, true, false, 0.0, 5, 0, -1, 0, "will half", true),
+      new Spell("detect chaos", "divination", 1, 0.5,true, true, true, 0.0, 60, 0, 0, 100, "none", false), 
+      new Spell("detect evil", "divination", 1, 0.5,true, true, true, 0.0, 60, 0, 0, 100, "none", false),
+      new Spell("detect good", "divination", 1, 0.5,true, true, true, 0.0, 60, 0, 0, 100, "none", false),
+      new Spell("detect law", "divination", 1, 0.5,true, true, true, 0.0, 60, 0, 0, 100, "none", false),
+      new Spell("endure elements", "abjuration", 1, 0.5, true, true, false, 0.0, 5, 0, 14400, 0, "none", true),
+      new Spell("obscuring mist", "conjuration", 1, 0.5, true, true, false, 0.0, 20, 0, 0, 10, "none", false),
+      new Spell("protection from chaos", "abjuration", 1, 0.5,true, true, true, 0.0, 5, 0, 0, 10, "will negates", true), 
+      new Spell("protection from evil", "abjuration", 1, 0.5,true, true, true, 0.0, 5, 0, 0, 10, "will negates", true),
+      new Spell("protection from good", "abjuration", 1, 0.5,true, true, true, 0.0, 5, 0, 0, 10, "will negates", true),
+      new Spell("protection from law", "abjuration", 1, 0.5,true, true, true, 0.0, 5, 0, 0, 10, "will negates", true),
+      new Spell("sleep", "enchantment", 1, 0.5, true, true, false, 0.0, 100, 10, 0, 10, "will negates", true),
+
+      new Spell("aid", "enchantment", 2, 0.5,true, true, true, 0.0, 5, 0, 0, 10, "none", true),
+      new Spell("animal trance", "enchantment", 2, 0.5, true, true, false, 0.0, 25, 2, 7, 0, "will negates", true), 
+      new Spell("bears endurance", "transmutation", 2, 0.5, true, true, false, 0.0, 5, 0, 0, 10, "will negates", true),
+      new Spell("bulls strength", "transmutation", 2, 0.5, true, true, false, 0.0, 5, 0, 0, 10, "will negates", true),
+      new Spell("cats grace", "transmutation", 2, 0.5, true, true, false, 0.0, 5, 0, 0, 10, "will negates", true),
+      new Spell("cure moderate wounds", "conjuration", 2, 0.5, true, true, false, 0.0, 5, 0, -1, 0, "will half", true),
+      new Spell("darkness", "evocation", 2, 0.5, true, false, true, 0.0, 5, 0, 0, 10, "none", false),
+      new Spell("delay poison", "conjuration", 2, 0.5,true, true, true, 0.0, 5, 0, 0, 600, "fort negates", false), 
+      new Spell("invisibility", "illusion", 2, 0.5,true, true, true, 0.0, 5, 0, 0, 10, "will negates", true),
+      new Spell("mirror image", "illusion", 2, 0.5, true, true, false, 0.0, 0, 0, 0, 10, "none", false),
+      new Spell("resist energy", "abjuration", 2, 0.5,true, true, true, 0.0, 5, 0, 0, 100, "fort negates", true),
+      new Spell("scorching ray", "evocation", 2, 0.5, true, true, false, 0.0, 25, 2, -1, 0, "none", true),
+      new Spell("see invisibility", "divination", 2, 0.5, true, true, false, 0.0, 0, 0, 0, 100, "none", false),
+      new Spell("web", "conjuration", 2, 0.5, true, true, false, 0.0, 100, 10, 0, 100, "ref negates", false), 
+
+      new Spell("animate dead", "necromancy", 3, 0.5, true, true, false, 25, 5, 0, -1, 0, "none", false),
+      new Spell("bestow curse", "necromancy", 3, 0.5, true, true, false, 0.0, 25, 2, -1, 0, "none", false),
+      new Spell("contagion", "necromancy", 3, 0.5, true, true, false, 0.0, 5, 0, -1, 0, "fort negates", true),
+      new Spell("continual flame", "evocation", 3, 0.5, true, true, false, 50, 5, 0, 999999, 999999, "none", false),
+      new Spell("cure serious wounds", "conjuration", 3, 0.5, true, true, false, 0.0, 5, 0, -1, 0, "will half", true),
+      new Spell("daylight", "evocation", 3, 0.5, true, true, false, 0.0, 25, 2, -1, 0, "none", false), 
+      new Spell("deeper darkness", "evocation", 3, 0.5,true, true, true, 0.0, 5, 0, 0, 100, "none", false),
+      new Spell("lightning bolt", "evocation", 3, 0.5, true, true, false, 0.0, 120, 0, -1, 0, "ref half", true),
+      new Spell("neutralize poison", "conjuration", 3, 0.5,true, true, true, 0.0, 5, 0, -1, 0, "will negates", true),
+      new Spell("remove curse", "abjuration", 3, 0.5, true, true, false, 0.0, 5, 0, -1, 0, "will negates", true),
+      new Spell("remove disease", "conjuration", 3, 0.5, true, true, false, 0.0, 5, 0, -1, 0, "fort negates", true),
+      new Spell("tongues", "divination", 3, 0.5,true, true, true, 0.0, 5, 0, 0, 100, "will negates", false), 
+
+      new Spell("cure critical wounds", "conjuration", 4, 0.5, true, true, false, 0.0, 5, 0, -1, 0, "will half", true),
+      new Spell("minor creation", "conjuration", 4, 10.0, true, true, false, 0.0, 0, 0, 0, 600, "none", false),
+      new Spell("polymorph", "transmutation", 4, 0.5, true, true, false, 0.0, 5, 0, 0, 10, "will negates", true),
+      new Spell("restoration", "conjuration", 4, 0.5, true, true, false, 1000, 5, 0, -1, 0, "will negates", true),
+      new Spell("stoneskin", "abjuration", 4, 0.5, true, true, false, 250, 5, 0, 0, 100, "will negates", true),
+      new Spell("wall of fire", "evocation", 4, 0.5,true, true, true, 0.0, 100, 10, 10, 1, "none", true),
+
+      new Spell("baleful polymorph", "transmutation", 5, 0.5, true, true, false, 0.0, 25, 2, 999999, 999999, "fort negates", true), 
+      new Spell("break enchantment", "abjuration", 5, 0.5, true, true, false, 0.0, 25, 2, -1, 0, "none", false),
+      new Spell("commune", "divination", 5, 0.5, true, true, true, 500, 0, 0, 0, 1, "none", false),
+      new Spell("heal", "conjuration", 5, 0.5, true, true, false, 0.0, 5, 0, -1, 0, "will negates", true),
+      new Spell("major creation", "conjuration", 5, 100.0, true, true, false, 0.0, 25, 2, 0, 1, "none", false),
+      new Spell("raise dead", "conjuration", 5, 0.5, true, true, true, 5000, 5, 0, -1, 0, "none", true),
+      new Spell("true seeing", "divination", 5, 0.5, true, true, false, 500, 5, 0, 0, 10, "will negates", true), 
+      new Spell("wall of stone", "conjuration", 5, 0.5,true, true, true, 0.0, 100, 10, -1, 0, "reflex negates", false),
     };
-/*
-    "0th: create water, detect magic, ghost sound, guidance, light, mending, purify food and drink, read magic, stabilize, touch of fatigue.",
-    "1st: bless, burning hands, cause fear, command, comprehend languages, cure light wounds, detect chaos, detect evil, detect good, detect law, endure elements, obscuring mist, protection from chaos, protection from evil, protection from good, protection from law, sleep.",
-    "2nd: aid, animal trance, bear's endurance, bull's strength, cat's grace, cure moderate wounds, darkness, delay poison, invisibility, mirror image, resist energy, scorching ray, see invisibility, web.",
-    "3rd: animate dead, bestow curse, contagion, continual flame, cure serious wounds, daylight, deeper darkness, lightning bolt, neutralize poison, remove curse, remove disease, tongues.",
-    "4th: cure critical wounds, minor creation, polymorph, restoration, stoneskin, wall of fire.",
-    "5th: baleful polymorph, break enchantment, commune, heal, major creation, raise dead, true seeing, wall of stone."
-*/
 
     public String[] skills = {
     "Acrobatics, Appraise, Bluff, Climb, Craft, Diplomacy, Disable Device, Disguise, Escape Artist, Fly, Handle Animal, Heal, Intimidate, Knowledge, Linguistics, Perception, Perform, Profession, Ride, Sense Motive, Sleight of Hand, Spellcraft, Stealth, Survival, Swim, Use Magic Device"
@@ -290,7 +368,7 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
     };
 
     public String[] feats = {
-    "Caster: Cleave, Combat Casting, Eschew Materials, Improved Initiative, Iron Will, item creation feats (all), Lightning Reflexes, metamagic feats (all), Natural Spell, Power Attack, Spell Focus, Spell Penetration, Toughness, and Weapon Focus.",
+    "Caster: Cleave, Combat Casting, Improved Initiative, Iron Will, item creation feats (all), Lightning Reflexes, metamagic feats (all), Natural Spell, Power Attack, Spell Focus, Spell Penetration, Toughness, and Weapon Focus.",
     "Finesse: Combat Expertise, Combat Reflexes, Dazzling Display, Deadly Stroke, Dodge, Greater Vital Strike, Improved Disarm, Improved Feint, Improved Trip, Improved Vital Strike, Mobility, Spring Attack, Shatter Defenses, Vital Strike, Weapon Finesse, and Whirlwind Attack.",
     "Unarmed: Combat Reflexes, Deflect Arrows, Dodge, Gorgon’s Fist, Improved Grapple, Improved Initiative, Improved Unarmed Strike, Medusa’s Wrath, Mobility, Scorpion Style, Snatch Arrows, Spring Attack, Stunning Fist, and Weapon Focus.",
     "Mounted: Improved Critical, Improved Initiative, Mounted Combat, Power Attack, Ride-By Attack, Skill Focus (Ride), Spirited Charge, Toughness, Trample, and Weapon Focus.",
@@ -315,9 +393,11 @@ public void paint(Graphics g) {
     super.paint(g);
     if(scale == "C") {
 	g.clearRect(0, 0, 500, 500);
-        for(int i=0; i<225; i++) {
+        for(int i=0; i<15; i++) {
+	for(int j=0; j<15; j++) {
 	g.setColor(Universe[playerX1][playerY1][playerX2][playerY2].color);
-    	g.fillRect((((i-1)%15)*30)+1, (((i-1)/15)*30)-1, 29, 29);
+    	g.fillRect((i*30)-1, (j*30)-1, 29, 29);
+	}
 	}
     } else if(scale == "B") {
 	g.clearRect(0, 0, 500, 500);
@@ -332,9 +412,11 @@ public void paint(Graphics g) {
 	}
     } else {
 	g.clearRect(0, 0, 500, 500);
-        for(int i=0; i<25; i++) {
-	g.setColor(Universe[playerX1][playerY1][playerX2][playerY2].color);
-    	g.fillRect((((i-1)%5)*30)+1, (((i-1)/5)*30)-1, 29, 29);
+        for(int i=0; i<5; i++) {
+	for(int j=0; j<4; j++) {
+	g.setColor(PLANES[i][j].color);
+    	g.fillRect((i*30)-1, (j*30)-1, 29, 29);
+	}
 	}
     }
     g.setColor(Color.WHITE);
@@ -358,19 +440,27 @@ public void moveplayers() {
     if (playerY < 0) {
         playerY = 0;
     }
-    if (playerY > 400) {
-        playerY = 400;
-    }
+    
     if (playerX < 0) {
         playerX = 0;
     }
-    if (playerX > 400) {
-        playerX = 400;
-    }
+
     if(scale == "C") {
+	if (playerY > 420) {
+            playerY = 420;
+    	}
+    	if (playerX > 420) {
+            playerX = 420;
+    	}
         playerX3 = (int) playerX / 30;
         playerY3 = (int) playerY / 30; 
     } else if(scale == "B") {
+	if (playerY > 270) {
+            playerY = 270;
+    	}
+    	if (playerX > 270) {
+            playerX = 270;
+    	}
         playerX2 = (int) playerX / 30;
         playerY2 = (int) playerY / 30; 
 	for(int i=0; i<10; i++) {
@@ -385,6 +475,12 @@ public void moveplayers() {
 	}
 	}
     } else {
+	if (playerY > 90) {
+            playerY = 90;
+    	}
+    	if (playerX > 120) {
+            playerX = 120;
+    	}
         playerX1 = (int) playerX / 30;
         playerY1 = (int) playerY / 30;
     }
