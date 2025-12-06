@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class PathfinderFirstEdition extends JPanel implements KeyListener {
-
     public int playerX3 = 7;
     public int playerY3 = 7;
     public int playerX2 = 6;
@@ -66,7 +65,7 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
         new Species("Wyvaran", 0, 2, 0, -2, 2, 0, "M", 0, 8, 30, 8, 30, false)
     };
 
-        public Species[] campaignA = {SPECIES[19]};
+    public Species[] campaignA = {SPECIES[19]};
     public Species[] campaignB = {SPECIES[19]};
     public Species[] campaignC = {SPECIES[19]};
     public Species[] campaignD = {SPECIES[19]};
@@ -322,6 +321,8 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
         "What the heck is that, what the heck is that?",
         "Just a disaster recovery!",
         "Negligee.",
+        "You mystify me!",
+        "Uh-oh, uh-oh."
         "They just keep driving, driving, driving!",
         "You're kidding!",
         "Chocolate chip pancakes with chokecherry syrup?",
@@ -342,11 +343,14 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
         "Rock and roll, coochie-coo!",
         "So, how'd you like the play?",
         "Wogod!",
+        "He'll kill us all!",
         "Look how big it is, look how big it is!",
         "Anything goes!",
         "You don't wanna know man!",
         "So, how's your love life?",
         "Where, is the scroll?",
+        "Sorry I'm tardy!",
+        "Chainsaw seppuku!",
         "They can take it like champs!",
         "Godspeed.",
         "That's what we can say about it then!",
