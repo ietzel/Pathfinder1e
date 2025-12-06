@@ -2,18 +2,18 @@ import java.awt.Color;
 
 public class Environment {
   public String name; 
+  public int index;
   public Color color;
   public boolean explored;
   public Terrain[] terrain;
   public double[] chancesA;
-  public double[] chancesB;
-  public Environment(String name, Color color, Terrain[] terrain, double[] chancesA, double[] chancesB) {
+  public Environment(String name, int index, Color color, Terrain[] terrain, double[] chancesA) {
     this.name = name;
+    this.index = index;
     this.color = color;
     this.explored = false;
     this.terrain = terrain;
     this.chancesA = chancesA;
-    this.chancesB = chancesB;
   }
 }
 

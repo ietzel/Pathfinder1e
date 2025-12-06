@@ -22,11 +22,16 @@ public class Character {
   public int shaken;
   public int frightened;
   public int panicked;
+  public int existingcomfortablycold;
+  public int existingcomfortablyhot;
   public int existcomfortablycold;
   public int existcomfortablyhot;
+  public int protection;
   public String protectionfrom;
+  public int resisting;
   public String resistenergy;
   public Curse[] curses = new Curse[10];
+  public int damagereducting;
   public int dr;
   public int badmagiceffects;
   public boolean stabilized;
@@ -37,6 +42,7 @@ public class Character {
   public int oneattacksaveskillcheck;
   public boolean readmagic;
   public String detecting;
+  public boolean detect;
   public boolean tongues;
   public boolean commune;
   public boolean trueseeing;
@@ -44,7 +50,7 @@ public class Character {
   public boolean commanded;
   public int sleep;
   public int entrancing;
-  public boolean light;
+  public int light;
   public int invisibility; 
   public int mirrorimage;
   public String polymorph;
@@ -72,11 +78,16 @@ public class Character {
     this.shaken = 0;
     this.frightened = 0;
     this.panicked = 0;
+    this.existingcomfortablycold = 0;
+    this.existingcomfortablyhot = 0;
     this.existcomfortablycold = 33;
     this.existcomfortablyhot = 94;
+    this.protection = 0;
     this.protectionfrom = "none";
+    this.resisting = 0;
     this.resistenergy = "none";
     this.curses = new Curse[10];
+    this.damagereducting = 0;
     this.dr = 0;
     this.badmagiceffects = 0;
     this.stabilized = true;
@@ -87,6 +98,7 @@ public class Character {
     this.oneattacksaveskillcheck = 0;
     this.readmagic = false;
     this.detecting = "none";
+    this.detect = false;
     this.tongues = false;
     this.commune = false;
     this.trueseeing = false;
@@ -94,7 +106,7 @@ public class Character {
     this.commanded = false;
     this.sleep = 0;
     this.entrancing = 0;
-    this.light = false;
+    this.light = 0;
     this.invisibility = 0; 
     this.mirrorimage = 0;
     this.polymorph = "none";
