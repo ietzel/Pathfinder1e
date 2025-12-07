@@ -357,7 +357,7 @@ public class PathfinderFirstEdition extends JPanel implements KeyListener {
         "Spinware is money hacking.",
         "Heyhey, hohhoh!",
         "Fo to the sho, it is what you make it, and it can be mo.",
-        "I didn't know if was an afro roast!",
+        "I didn't know it was an afro roast!",
         "Don't you know I'm a human 'bein, and I love me some teetees?",
         "In the paytheist, in the paytheist, in the paytheist, in the paytheist. Let's say we strike a deal, not reinvent the wheel, inthepaytheistinthepaytheistinthepaytheistinthepaytheistinthepaytheist. In the paytheist in the paytheist in the paytheist in the paytheist in the paytheist in the paytheist in the paytheist in the paytheist!",
         "What are you doing, buster?",
