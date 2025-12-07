@@ -1,7 +1,7 @@
 public class Conjuration extends School {
     public int gallonsofwaterperlevel;
     public boolean stabilizer;
-    public double basehealing;
+    public int basehealing; // CHANGED from double
     public int healingperlevel;
     public int maxhealingperlevel;
     public int obscurationradius; 
@@ -14,11 +14,12 @@ public class Conjuration extends School {
     public boolean removesafflictions;
     public boolean raisesdead;
     public boolean stonewallsquareperlevel;
-    public Conjuration(String name, int gallonsofwaterperlevel, boolean stabilizer, double basehealing, int healingperlevel, int maxhealingperlevel, int obscurationradius, boolean poisonimmunity, int grappleradius, int neutralizespoisonroundsperlevel, boolean removesdiseases, int createscubicfeetofmatterperlevel, boolean removestwoabilitydamageandnegativelevel, boolean removesafflictions, boolean raisesdead, boolean stonewallsquareperlevel) {
+    // Constructor updated
+    public Conjuration(String name, int gallonsofwaterperlevel, boolean stabilizer, int basehealing, int healingperlevel, int maxhealingperlevel, int obscurationradius, boolean poisonimmunity, int grappleradius, int neutralizespoisonroundsperlevel, boolean removesdiseases, int createscubicfeetofmatterperlevel, boolean removestwoabilitydamageandnegativelevel, boolean removesafflictions, boolean raisesdead, boolean stonewallsquareperlevel) {
         super(name);
         this.gallonsofwaterperlevel = gallonsofwaterperlevel;
         this.stabilizer = stabilizer;
-        this.basehealing = basehealing;
+        this.basehealing = basehealing; // Assignment updated
         this.healingperlevel = healingperlevel;
         this.maxhealingperlevel = maxhealingperlevel;
         this.obscurationradius = obscurationradius;

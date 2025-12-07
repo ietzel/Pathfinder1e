@@ -7,6 +7,7 @@ public class Character {
   public int fort;
   public int ref;
   public int will;
+  public int ac;
   public int bab;
   public String alignment;
   public int strength;
@@ -15,6 +16,7 @@ public class Character {
   public int intelligence;
   public int wisdom;
   public int charisma;
+  public double concealment;
   public int grappled;
   public int fatigued;
   public int exhausted;
@@ -34,36 +36,38 @@ public class Character {
   public int damagereducting;
   public int dr;
   public int badmagiceffects;
-  public boolean stabilized;
-  public boolean obscured;
-  public boolean poisoned;
-  public boolean diseased;
+  public int stabilized; // CHANGED from boolean
+  public int obscured;   // CHANGED from boolean
+  public boolean poisoned; // Remains boolean (for status clearing)
+  public int diseased;   // CHANGED from boolean
   public int negativelevels;
   public int oneattacksaveskillcheck;
-  public boolean readmagic;
+  public int readmagic;    // CHANGED from boolean
   public String detecting;
-  public boolean detect;
-  public boolean tongues;
-  public boolean commune;
-  public boolean trueseeing;
-  public boolean attackrollfearsavebonus;
-  public boolean commanded;
+  public int detect;       // CHANGED from boolean
+  public int tongues;      // CHANGED from boolean
+  public int commune;      // CHANGED from boolean
+  public int trueseeing;   // CHANGED from boolean
+  public int attackrollfearsavebonus; // CHANGED from boolean
+  public int commanded;    // CHANGED from boolean
   public int sleep;
   public int entrancing;
   public int light;
   public int invisibility; 
   public int mirrorimage;
-  public String polymorph;
-  public Character(String name, Species species, int level, String alignment, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
+  public int polymorph;    // CHANGED from String
+
+  public Character(String name, Species species, int level, int maxhp, int currenthp, String alignment, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
     this.name = name;
     this.species = species;
     this.level = level;
-    this.maxhp = 1;
-    this.currenthp = 1;
-    this.fort = (int) Math.floor(level/3);
-    this.ref = (int) Math.floor(level/3);
-    this.will = (int) Math.floor(level/2)+2;
-    this.bab = (int) Math.floor(level/2);
+    this.maxhp = maxhp;
+    this.currenthp = currenthp;
+    this.fort = fort;
+    this.ref = ref;
+    this.will = will;
+    this.ac = ac;
+    this.bab = bab;
     this.alignment = alignment;
     this.strength = strength + this.species.strength;
     this.dexterity = dexterity + this.species.dexterity;
@@ -71,6 +75,7 @@ public class Character {
     this.intelligence = intelligence + this.species.intelligence;
     this.wisdom = wisdom + this.species.wisdom;
     this.charisma = charisma + this.species.charisma;
+    this.concealment = 0.0;
     this.grappled = 0;
     this.fatigued = 0;
     this.exhausted = 0;
@@ -90,32 +95,24 @@ public class Character {
     this.damagereducting = 0;
     this.dr = 0;
     this.badmagiceffects = 0;
-    this.stabilized = true;
-    this.obscured = false;
+    this.stabilized = 0; // CHANGED from true
+    this.obscured = 0; // CHANGED from false
     this.poisoned = false;
-    this.diseased = false;
+    this.diseased = 0; // CHANGED from false
     this.negativelevels = 0;
     this.oneattacksaveskillcheck = 0;
-    this.readmagic = false;
+    this.readmagic = 0; // CHANGED from false
     this.detecting = "none";
-    this.detect = false;
-    this.tongues = false;
-    this.commune = false;
-    this.trueseeing = false;
-    this.attackrollfearsavebonus = false;
-    this.commanded = false;
+    this.detect = 0; // CHANGED from false
+    this.tongues = 0; // CHANGED from false
+    this.commune = 0; // CHANGED from false
+    this.trueseeing = 0; // CHANGED from false
+    this.attackrollfearsavebonus = 0; // CHANGED from false
+    this.commanded = 0; // CHANGED from false
     this.sleep = 0;
     this.entrancing = 0;
     this.light = 0;
-    this.invisibility = 0; 
+    this.invisibility = 0;
     this.mirrorimage = 0;
-    this.polymorph = "none";
   }
-  public void leveling(int amount) {
-    this.level += amount;
-    this.fort = (int) Math.floor(level/3);
-    this.ref = (int) Math.floor(level/3);
-    this.will = (int) Math.floor(level/2)+2;
-    this.bab = (int) Math.floor(level/2);
-  } 
 }
